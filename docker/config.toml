@@ -1,0 +1,19 @@
+[meme]
+load_builtin_memes = true  # 是否加载内置表情包
+meme_dirs = ["/meme-extend"]  # 加载其他位置的表情包，填写文件夹路径
+meme_disabled_list = []  # 禁用的表情包列表，填写表情的 `key`
+
+[resource]
+resource_url = "https://raw.githubusercontent.com/MeetWq/meme-generator"  # 下载内置表情包图片时的资源链接
+
+[gif]
+gif_max_size = 10.0  # 限制生成的 gif 文件大小，单位为 Mb
+gif_max_frames = 100  # 限制生成的 gif 文件帧数
+
+[translate]
+baidu_trans_appid = ""  # 百度翻译api相关，表情包 `dianzhongdian` 需要使用
+baidu_trans_apikey = ""  # 可在 百度翻译开放平台 (http://api.fanyi.baidu.com) 申请
+
+[server]
+host = "0.0.0.0"  # web server 监听地址
+port = 2233  # web server 端口
