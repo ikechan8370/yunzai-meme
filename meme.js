@@ -20,16 +20,22 @@ export class memes extends plugin {
       rule: [
         {
           /** 命令正则匹配 */
-          reg: '^(#)?meme(s)?列表$',
+          reg: '^(#)?(meme(s)?|表情包)列表$',
           /** 执行方法 */
           fnc: 'memesList'
+        },
+        {
+          /** 命令正则匹配 */
+          reg: '^#?随机(meme(s)?|表情包)',
+          /** 执行方法 */
+          fnc: 'randomMemes'
+        },
+        {
+          /** 命令正则匹配 */
+          reg: '^#?(meme(s)?|表情包)帮助',
+          /** 执行方法 */
+          fnc: 'memesHelp'
         }
-        // {
-        //   /** 命令正则匹配 */
-        //   reg: '^#?meme(s)?',
-        //   /** 执行方法 */
-        //   fnc: 'memes'
-        // }
       ]
     }
     Object.keys(keyMap).forEach(key => {
@@ -41,6 +47,13 @@ export class memes extends plugin {
       })
     })
     super(option)
+  }
+
+  async memesHelp (e) {
+    e.reply(`【memes列表】：查看支持的memes列表\n
+    【{表情名称}】：memes列表中的表情名称，根据提供的文字或图片制作表情包\n
+    【随机meme】：随机制作一些表情包\n
+    【{表情名称}+详情】：查看该表情所支持的参数`)
   }
 
   async memesList (e) {
@@ -60,6 +73,14 @@ export class memes extends plugin {
     return true
   }
 
+  async randomMemes (e) {
+    let keys = Object.keys(infos).filter(key => infos[key].params.min_images === 1 && infos[key].params.min_texts === 0)
+    let index = _.random(0, keys.length - 1, false)
+    console.log(keys, index)
+    e.msg = infos[keys[index]].keywords[0]
+    return await this.memes(e)
+  }
+
   /**
      * #memes
      * @param e oicq传递的事件参数e
@@ -71,6 +92,10 @@ export class memes extends plugin {
     let targetCode = keyMap[target]
     // let target = e.msg.replace(/^#?meme(s)?/, '')
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
+    if (text1.trim() === '详情' || text1.trim() === '帮助') {
+      await e.reply(detail(targetCode))
+      return false
+    }
     let [text, args = ''] = text1.split('#')
     let atName
     let formData = new FormData()
@@ -469,6 +494,46 @@ const keyMap = {
   狠狠地撅: 'do',
   禁止: 'forbid',
   禁: 'forbid'
+}
+
+const detail = code => {
+  let d = infos[code]
+  let keywords = d.keywords.join('、')
+  let ins = `【代码】${d.key}\n【名称】${keywords}\n【最大图片数量】${d.params.max_images}\n【最小图片数量】${d.params.min_images}\n【最大文本数量】${d.params.max_texts}\n【最小文本数量】${d.params.min_texts}\n【默认文本】${d.params.default_texts.join('/')}\n`
+  if (d.params.args.length > 0) {
+    let supportArgs = ''
+    switch (code) {
+      case 'look_flat': {
+        supportArgs = '看扁率，数字.如#3'
+        break
+      }
+      case 'crawl': {
+        supportArgs = '爬的图片编号，1-92。如#33'
+        break
+      }
+      case 'symmetric': {
+        supportArgs = '方向，上下左右。如#下'
+        break
+      }
+      case 'petpet':
+      case 'jiji_king':
+      case 'kirby_hammer': {
+        supportArgs = '是否圆形头像，输入圆即可。如#圆'
+        break
+      }
+      case 'always': {
+        supportArgs = '一直图像的渲染模式，循环、圆、默认。不填参数即默认。如一直#循环'
+        break
+      }
+      case 'gun':
+      case 'bubble_tea': {
+        supportArgs = '方向，左、右、两边。如#两边'
+        break
+      }
+    }
+    ins += `【支持参数】${supportArgs}`
+  }
+  return ins
 }
 
 const infos = {
