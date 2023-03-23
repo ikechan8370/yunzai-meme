@@ -198,6 +198,7 @@ export class memes extends plugin {
       formData.set('args', args)
     }
     let response = await fetch(baseUrl + '/memes/' + targetCode, {
+    let response = await fetch(baseUrl + '/memes/' + targetCode + '/', {
       method: 'POST',
       body: formData
       // headers: {
