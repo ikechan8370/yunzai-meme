@@ -2,8 +2,9 @@ import plugin from '../../lib/plugins/plugin.js'
 import fetch, { FormData, File } from 'node-fetch'
 import { mkdirs } from '../chatgpt-plugin/utils/common.js'
 import fs from 'fs'
+import _ from 'lodash'
 import { segment } from 'oicq'
-const baseUrl = 'https://memes.201666.xyz'
+const baseUrl = 'https://memes.ikechan8370.com'
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -68,8 +69,10 @@ export class memes extends plugin {
     let target = keys[0]
     let targetCode = keyMap[target]
     // let target = e.msg.replace(/^#?meme(s)?/, '')
-    let text = e.msg.replace('#', '').replace(target, '')
-    console.log({ target, targetCode, text })
+    let text1 = _.trimStart(e.msg, '#').replace(target, '')
+    let [text, args = ''] = text1.split('#')
+    args = handleArgs(targetCode, args)
+    console.log({ target, targetCode, text, args })
     let formData = new FormData()
     let info = infos[targetCode]
     let fileLoc
@@ -143,6 +146,9 @@ export class memes extends plugin {
         formData.set('texts', text)
       }
     }
+    if (args) {
+      formData.set('args', args)
+    }
     let response = await fetch(baseUrl + '/memes/' + targetCode, {
       method: 'POST',
       body: formData
@@ -166,6 +172,55 @@ export class memes extends plugin {
     await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
     fileLoc && await fs.unlinkSync(fileLoc)
     // await fs.unlinkSync(resultFileLoc)
+  }
+}
+
+function handleArgs (key, args) {
+  if (!args) {
+    return ''
+  }
+  switch (key) {
+    case 'look_flat': {
+      return JSON.stringify({ ratio: parseInt(args) })
+    }
+    case 'crawl': {
+      return JSON.stringify({ number: parseInt(args) })
+    }
+    case 'symmetric': {
+      let directionMap = {
+        左: 'left',
+        右: 'right',
+        上: 'top',
+        下: 'bottom'
+      }
+      return JSON.stringify({ direction: directionMap[args.trim()] })
+    }
+    case 'petpet':
+    case 'jiji_king':
+    case 'kirby_hammer': {
+      return JSON.stringify({ circle: args.startsWith('圆') })
+    }
+    case 'my_friend': {
+      return JSON.stringify({ name: args })
+    }
+    case 'always': {
+      let modeMap = {
+        '': 'normal',
+        循环: 'loop',
+        圆: 'circle',
+        圆形: 'circle'
+      }
+      return JSON.stringify({ mode: modeMap[args] })
+    }
+    case 'gun':
+    case 'bubble_tea': {
+      let directionMap = {
+        左: 'left',
+        右: 'right',
+        两边: 'both'
+      }
+      return JSON.stringify({ position: directionMap[args.trim()] })
+    }
   }
 }
 
