@@ -1,9 +1,9 @@
 # yunzai-meme
-Yunzai机器人的表情包插件
+基于meme-generator的Yunzai机器人的表情包插件
 
 ## 建议
 提供了一个默认的免费API，是作者的小鸡，可能生成很慢。建议自己搭建。
-修改第6行的baseUrl为你的自建meme api，参考[这里](https://github.com/MeetWq/meme-generator)搭建
+修改第6行的baseUrl为你的自建meme api，参考[这里](https://github.com/MeetWq/meme-generator)搭建。可选加入[扩展包](https://github.com/MeetWq/meme-generator-contrib)
 
 ## 安装
 
@@ -17,3 +17,8 @@ Yunzai机器人的表情包插件
 需要文字合成表情包的需要在指令中添加文字，并用/隔开，如：可达鸭我爱你/你爱我
 
 > 如果觉得有帮助，请帮我点一个免费的Star，谢谢！
+
+## 致谢
+
+* https://github.com/MeetWq/meme-generator
+* https://github.com/MeetWq/meme-generator-contrib
