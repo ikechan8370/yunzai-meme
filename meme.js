@@ -3,7 +3,7 @@ import fetch, { FormData, File } from 'node-fetch'
 import { mkdirs } from '../chatgpt-plugin/utils/common.js'
 import fs from 'fs'
 import { segment } from 'oicq'
-const baseUrl = ''
+const baseUrl = 'https://memes.201666.xyz'
 export class memes extends plugin {
   constructor () {
     let option = {
