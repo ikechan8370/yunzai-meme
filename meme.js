@@ -122,12 +122,6 @@ export class memes extends plugin {
         formData.append('images', new File([buffer], 'avatar.jpg', { type: 'image/jpeg' }))
       }
     }
-    if (info.params.max_texts > 0) {
-      if (!text) {
-        text = e.sender.nickname
-      }
-      formData.set('texts', text)
-    }
     if (info.params.min_texts > 0) {
       if (!text) {
         text = e.sender.nickname
@@ -144,6 +138,16 @@ export class memes extends plugin {
       } else {
         formData.append('texts', text)
       }
+    }
+    if (info.params.max_texts > 0) {
+      if (!text) {
+        if (e.message.filter(m => m.type === 'at').length > 0) {
+          text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
+        } else {
+          text = e.sender.nickname
+        }
+      }
+      formData.append('texts', text)
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
       atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
