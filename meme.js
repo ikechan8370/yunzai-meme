@@ -5,6 +5,7 @@ import fs from 'fs'
 import _ from 'lodash'
 import { segment } from 'oicq'
 const baseUrl = 'https://memes.ikechan8370.com'
+const reply = true
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -124,7 +125,11 @@ export class memes extends plugin {
     }
     if (info.params.min_texts > 0) {
       if (!text) {
-        text = e.sender.nickname
+        if (e.message.filter(m => m.type === 'at').length > 0) {
+          text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
+        } else {
+          text = e.sender.nickname
+        }
       }
       if (info.params.min_texts > 1) {
         let texts = text.split('/', info.params.max_texts)
@@ -147,7 +152,9 @@ export class memes extends plugin {
           text = e.sender.nickname
         }
       }
-      formData.append('texts', text)
+      if (formData.getAll('texts').length < info.params.max_texts) {
+        formData.append('texts', text)
+      }
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
       atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
@@ -156,7 +163,7 @@ export class memes extends plugin {
       atName = e.sender.nickname
     }
     args = handleArgs(targetCode, args, atName)
-    console.log({ target, targetCode, text, args })
+    console.log('input', { target, targetCode, texts: formData.getAll('texts'), args: formData.getAll('args') })
     if (args) {
       formData.set('args', args)
     }
@@ -171,7 +178,7 @@ export class memes extends plugin {
     if (response.status > 299) {
       let error = await response.text()
       console.error(error)
-      await e.reply(error)
+      await e.reply(error, true)
       return true
     }
     mkdirs('data/memes/result')
@@ -180,7 +187,7 @@ export class memes extends plugin {
     const resultArrayBuffer = await resultBlob.arrayBuffer()
     const resultBuffer = Buffer.from(resultArrayBuffer)
     await fs.writeFileSync(resultFileLoc, resultBuffer)
-    await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
+    await e.reply(segment.image(fs.createReadStream(resultFileLoc)), reply)
     fileLoc && await fs.unlinkSync(fileLoc)
     await fs.unlinkSync(resultFileLoc)
   }
