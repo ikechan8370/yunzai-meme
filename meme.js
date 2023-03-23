@@ -76,9 +76,11 @@ export class memes extends plugin {
     let formData = new FormData()
     let info = infos[targetCode]
     let fileLoc
-    if (info.params.min_images > 0) {
-      let imgUrls
-      if (info.params.min_images === 1 && e.source) {
+    if (info.params.max_images > 0) {
+      // 可以有图，来从回复、发送和头像找图
+      let imgUrls = []
+      if (e.source) {
+        // 优先从回复找图
         let reply
         if (e.isGroup) {
           reply = (await e.group.getChatHistory(e.source.seq, 1)).pop()?.message
@@ -89,27 +91,29 @@ export class memes extends plugin {
           for (let val of reply) {
             if (val.type === 'image') {
               console.log(val)
-              imgUrls = [val.url]
-              break
+              imgUrls.push(val.url)
             }
           }
         }
-      } else if (info.params.min_images > 1 && e.img) {
-        console.log(e.img)
-        imgUrls = e.img
+      } else if (e.img) {
+        // 一起发的图
+        imgUrls.push(...e.img)
       } else if (e.message.filter(m => m.type === 'at').length > 0) {
+        // 艾特的用户的头像
         let ats = e.message.filter(m => m.type === 'at')
         imgUrls = ats.map(at => at.qq).map(qq => `https://q1.qlogo.cn/g?b=qq&s=0&nk=${qq}`)
       }
       if (!imgUrls || imgUrls.length === 0) {
+        // 如果都没有，用发送者的头像
         imgUrls = [`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`]
       }
       if (imgUrls.length < info.params.min_images && imgUrls.indexOf(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`) === -1) {
+        // 如果数量不够，补上发送者头像，且放到最前面
         let me = [`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`]
         imgUrls = me.concat(imgUrls)
-        console.log(imgUrls)
         // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.msg.sender.user_id}`)
       }
+      imgUrls = imgUrls.slice(0, Math.min(info.params.max_images, imgUrls.length))
       for (let i = 0; i < imgUrls.length; i++) {
         let imgUrl = imgUrls[i]
         const imageResponse = await fetch(imgUrl)
