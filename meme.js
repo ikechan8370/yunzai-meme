@@ -126,6 +126,7 @@ export class memes extends plugin {
       if (!text) {
         text = e.sender.nickname
       }
+      formData.set('texts', text)
     }
     if (info.params.min_texts > 0) {
       if (!text) {
@@ -133,7 +134,6 @@ export class memes extends plugin {
       }
       if (info.params.min_texts > 1) {
         let texts = text.split('/', info.params.max_texts)
-        console.log(texts)
         if (texts.length < info.params.min_texts) {
           await e.reply(`字不够！要至少${info.params.min_texts}个用/隔开！`, true)
           return true
@@ -142,13 +142,14 @@ export class memes extends plugin {
           formData.append('texts', t)
         })
       } else {
-        formData.set('texts', text)
+        formData.append('texts', text)
       }
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
-      console.log(e.message.filter(m => m.type === 'at')[0])
       atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
-      console.log({atName})
+    }
+    if (!atName) {
+      atName = e.sender.nickname
     }
     args = handleArgs(targetCode, args, atName)
     console.log({ target, targetCode, text, args })
@@ -162,7 +163,7 @@ export class memes extends plugin {
       // 'Content-Type': 'multipart/form-data'
       // }
     })
-    console.log(response.status)
+    // console.log(response.status)
     if (response.status > 299) {
       let error = await response.text()
       console.error(error)
@@ -177,7 +178,7 @@ export class memes extends plugin {
     await fs.writeFileSync(resultFileLoc, resultBuffer)
     await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
     fileLoc && await fs.unlinkSync(fileLoc)
-    // await fs.unlinkSync(resultFileLoc)
+    await fs.unlinkSync(resultFileLoc)
   }
 }
 
@@ -185,12 +186,15 @@ function handleArgs (key, args, atName) {
   if (!args) {
     args = ''
   }
+  let argsObj = {}
   switch (key) {
     case 'look_flat': {
-      return JSON.stringify({ ratio: parseInt(args) })
+      argsObj = { ratio: parseInt(args) }
+      break
     }
     case 'crawl': {
-      return JSON.stringify({ number: parseInt(args) })
+      argsObj = { number: parseInt(args) }
+      break
     }
     case 'symmetric': {
       let directionMap = {
@@ -199,18 +203,21 @@ function handleArgs (key, args, atName) {
         上: 'top',
         下: 'bottom'
       }
-      return JSON.stringify({ direction: directionMap[args.trim()] })
+      argsObj = { direction: directionMap[args.trim()] }
+      break
     }
     case 'petpet':
     case 'jiji_king':
     case 'kirby_hammer': {
-      return JSON.stringify({ circle: args.startsWith('圆') })
+      argsObj = { circle: args.startsWith('圆') }
+      break
     }
     case 'my_friend': {
       if (!args) {
         args = atName
       }
-      return JSON.stringify({ name: args })
+      argsObj = { name: args }
+      break
     }
     case 'always': {
       let modeMap = {
@@ -219,7 +226,8 @@ function handleArgs (key, args, atName) {
         圆: 'circle',
         圆形: 'circle'
       }
-      return JSON.stringify({ mode: modeMap[args] })
+      argsObj = { mode: modeMap[args] }
+      break
     }
     case 'gun':
     case 'bubble_tea': {
@@ -228,9 +236,16 @@ function handleArgs (key, args, atName) {
         右: 'right',
         两边: 'both'
       }
-      return JSON.stringify({ position: directionMap[args.trim()] })
+      argsObj = { position: directionMap[args.trim()] }
+      break
     }
   }
+  argsObj.user_infos = [
+    {
+      name: atName
+    }
+  ]
+  return JSON.stringify(argsObj)
 }
 
 const keyMap = {
