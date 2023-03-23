@@ -12,6 +12,9 @@
 直接把meme.js扔到plugins/example目录下即可
 
 ## 食用方法
+
+使用`meme帮助`查看帮助
+
 建议先查看https://github.com/MeetWq/meme-generator 了解支持的表情包及合成要求。
 
 需要图片合成表情包的可以通过回复、艾特（取头像）、默认（自己的头像）获取素材图片
