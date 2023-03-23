@@ -71,8 +71,7 @@ export class memes extends plugin {
     // let target = e.msg.replace(/^#?meme(s)?/, '')
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
     let [text, args = ''] = text1.split('#')
-    args = handleArgs(targetCode, args)
-    console.log({ target, targetCode, text, args })
+    let atName
     let formData = new FormData()
     let info = infos[targetCode]
     let fileLoc
@@ -146,6 +145,13 @@ export class memes extends plugin {
         formData.set('texts', text)
       }
     }
+    if (e.message.filter(m => m.type === 'at').length > 0) {
+      console.log(e.message.filter(m => m.type === 'at')[0])
+      atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
+      console.log({atName})
+    }
+    args = handleArgs(targetCode, args, atName)
+    console.log({ target, targetCode, text, args })
     if (args) {
       formData.set('args', args)
     }
@@ -175,9 +181,9 @@ export class memes extends plugin {
   }
 }
 
-function handleArgs (key, args) {
+function handleArgs (key, args, atName) {
   if (!args) {
-    return ''
+    args = ''
   }
   switch (key) {
     case 'look_flat': {
@@ -201,6 +207,9 @@ function handleArgs (key, args) {
       return JSON.stringify({ circle: args.startsWith('圆') })
     }
     case 'my_friend': {
+      if (!args) {
+        args = atName
+      }
       return JSON.stringify({ name: args })
     }
     case 'always': {
