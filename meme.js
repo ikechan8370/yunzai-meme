@@ -1,7 +1,7 @@
 import plugin from '../../lib/plugins/plugin.js'
 import fetch, { FormData, File } from 'node-fetch'
-import { mkdirs } from '../chatgpt-plugin/utils/common.js'
 import fs from 'fs'
+import path from 'node:path'
 import _ from 'lodash'
 import { segment } from 'oicq'
 const baseUrl = 'https://memes.ikechan8370.com'
@@ -3264,6 +3264,17 @@ const infos = {
       max_texts: 0,
       default_texts: [],
       args: []
+    }
+  }
+}
+
+function mkdirs (dirname) {
+  if (fs.existsSync(dirname)) {
+    return true
+  } else {
+    if (mkdirs(path.dirname(dirname))) {
+      fs.mkdirSync(dirname)
+      return true
     }
   }
 }
