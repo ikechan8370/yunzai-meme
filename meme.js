@@ -150,7 +150,7 @@ export class memes extends plugin {
         const arrayBuffer = await blob.arrayBuffer()
         const buffer = Buffer.from(arrayBuffer)
         await fs.writeFileSync(fileLoc, buffer)
-        formData.append('images', new File([buffer], 'avatar.jpg', { type: 'image/jpeg' }))
+        formData.append('images', new File([buffer], `avatar_${i}.jpg`, { type: 'image/jpeg' }))
       }
     }
     if (!text && info.params.min_texts > 0) {
@@ -184,10 +184,10 @@ export class memes extends plugin {
       atName = e.sender.nickname
     }
     args = handleArgs(targetCode, args, atName)
-    console.log('input', { target, targetCode, texts: formData.getAll('texts'), args: formData.getAll('args') })
     if (args) {
       formData.set('args', args)
     }
+    console.log('input', { target, targetCode, images: formData.getAll('images'), texts: formData.getAll('texts'), args: formData.getAll('args') })
     let response = await fetch(baseUrl + '/memes/' + targetCode + '/', {
       method: 'POST',
       body: formData
@@ -221,11 +221,11 @@ function handleArgs (key, args, atName) {
   let argsObj = {}
   switch (key) {
     case 'look_flat': {
-      argsObj = { ratio: parseInt(args) }
+      argsObj = { ratio: parseInt(args || '2') }
       break
     }
     case 'crawl': {
-      argsObj = { number: parseInt(args) }
+      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 92, false) }
       break
     }
     case 'symmetric': {
@@ -235,7 +235,7 @@ function handleArgs (key, args, atName) {
         上: 'top',
         下: 'bottom'
       }
-      argsObj = { direction: directionMap[args.trim()] }
+      argsObj = { direction: directionMap[args.trim()] || 'left' }
       break
     }
     case 'petpet':
@@ -255,10 +255,9 @@ function handleArgs (key, args, atName) {
       let modeMap = {
         '': 'normal',
         循环: 'loop',
-        圆: 'circle',
-        圆形: 'circle'
+        套娃: 'circle'
       }
-      argsObj = { mode: modeMap[args] }
+      argsObj = { mode: modeMap[args] || 'normal' }
       break
     }
     case 'gun':
@@ -268,7 +267,7 @@ function handleArgs (key, args, atName) {
         右: 'right',
         两边: 'both'
       }
-      argsObj = { position: directionMap[args.trim()] }
+      argsObj = { position: directionMap[args.trim()] || 'right' }
       break
     }
   }
@@ -514,7 +513,7 @@ const detail = code => {
         break
       }
       case 'always': {
-        supportArgs = '一直图像的渲染模式，循环、圆、默认。不填参数即默认。如一直#循环'
+        supportArgs = '一直图像的渲染模式，循环、套娃、默认。不填参数即默认。如一直#循环'
         break
       }
       case 'gun':
