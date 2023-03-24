@@ -153,31 +153,27 @@ export class memes extends plugin {
         formData.append('images', new File([buffer], 'avatar.jpg', { type: 'image/jpeg' }))
       }
     }
-    if (info.params.min_texts > 0) {
-      if (!text) {
-        if (e.message.filter(m => m.type === 'at').length > 0) {
-          text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
-        } else {
-          text = e.sender.nickname
-        }
+    if (!text && info.params.min_texts > 0) {
+      if (e.message.filter(m => m.type === 'at').length > 0) {
+        text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
+      } else {
+        text = e.sender.nickname
       }
-      let texts = text.split('/', info.params.max_texts)
-      if (texts.length < info.params.min_texts) {
-        await e.reply(`字不够！要至少${info.params.min_texts}个用/隔开！`, true)
-        return true
-      }
-      texts.forEach(t => {
-        formData.append('texts', t)
-      })
     }
-    if (info.params.max_texts > 0) {
-      if (formData.getAll('texts').length === 0) {
-        if (formData.getAll('texts').length < info.params.max_texts) {
-          if (e.message.filter(m => m.type === 'at').length > 0) {
-            formData.append('texts', _.trim(e.message.filter(m => m.type === 'at')[0].text, '@'))
-          } else {
-            formData.append('texts', e.sender.nickname)
-          }
+    let texts = text.split('/', info.params.max_texts)
+    if (texts.length < info.params.min_texts) {
+      await e.reply(`字不够！要至少${info.params.min_texts}个用/隔开！`, true)
+      return true
+    }
+    texts.forEach(t => {
+      formData.append('texts', t)
+    })
+    if (info.params.max_texts > 0 && formData.getAll('texts').length === 0) {
+      if (formData.getAll('texts').length < info.params.max_texts) {
+        if (e.message.filter(m => m.type === 'at').length > 0) {
+          formData.append('texts', _.trim(e.message.filter(m => m.type === 'at')[0].text, '@'))
+        } else {
+          formData.append('texts', e.sender.nickname)
         }
       }
     }
