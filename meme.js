@@ -83,9 +83,9 @@ export class memes extends plugin {
   }
 
   /**
-     * #memes
-     * @param e oicq传递的事件参数e
-     */
+   * #memes
+   * @param e oicq传递的事件参数e
+   */
   async memes (e) {
     // console.log(e)
     let keys = Object.keys(keyMap).filter(k => e.msg.replace('#', '').startsWith(k))
@@ -161,29 +161,24 @@ export class memes extends plugin {
           text = e.sender.nickname
         }
       }
-      if (info.params.min_texts > 1) {
-        let texts = text.split('/', info.params.max_texts)
-        if (texts.length < info.params.min_texts) {
-          await e.reply(`字不够！要至少${info.params.min_texts}个用/隔开！`, true)
-          return true
-        }
-        texts.forEach(t => {
-          formData.append('texts', t)
-        })
-      } else {
-        formData.append('texts', text)
+      let texts = text.split('/', info.params.max_texts)
+      if (texts.length < info.params.min_texts) {
+        await e.reply(`字不够！要至少${info.params.min_texts}个用/隔开！`, true)
+        return true
       }
+      texts.forEach(t => {
+        formData.append('texts', t)
+      })
     }
     if (info.params.max_texts > 0) {
-      if (!text) {
-        if (e.message.filter(m => m.type === 'at').length > 0) {
-          text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
-        } else {
-          text = e.sender.nickname
+      if (formData.getAll('texts').length === 0) {
+        if (formData.getAll('texts').length < info.params.max_texts) {
+          if (e.message.filter(m => m.type === 'at').length > 0) {
+            formData.append('texts', _.trim(e.message.filter(m => m.type === 'at')[0].text, '@'))
+          } else {
+            formData.append('texts', e.sender.nickname)
+          }
         }
-      }
-      if (formData.getAll('texts').length < info.params.max_texts) {
-        formData.append('texts', text)
       }
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
