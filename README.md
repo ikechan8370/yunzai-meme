@@ -7,6 +7,8 @@
 
 更新：提供了一个docker镜像，一键搭建：`docker run -d -p 2233:2233 --restart=always geyinchi/meme-generator:latest`
 
+更新：ARM版镜像，由@Regalia提供：`regaliaf/meme-generator`
+
 ## 安装
 
 直接把meme.js扔到plugins/example目录下即可
