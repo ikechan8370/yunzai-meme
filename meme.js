@@ -50,7 +50,7 @@ export class memes extends plugin {
       let reg = forceSharp ? `^#${key}` : `^#?${key}`
       option.rule.push({
         /** 命令正则匹配 */
-        reg: reg,
+        reg,
         /** 执行方法 */
         fnc: 'memes'
       })
@@ -114,7 +114,7 @@ export class memes extends plugin {
       return false
     }
     let [text, args = ''] = text1.split('#')
-    let atName
+    let userInfos
     let formData = new FormData()
     let info = infos[targetCode]
     let fileLoc
@@ -194,12 +194,12 @@ export class memes extends plugin {
       }
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
-      atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
+      userInfos = e.message.filter(m => m.type === 'at')
     }
-    if (!atName) {
-      atName = e.sender.card || e.sender.nickname
+    if (!userInfos) {
+      userInfos = [e.sender]
     }
-    args = handleArgs(targetCode, args, atName)
+    args = handleArgs(targetCode, args, userInfos)
     if (args) {
       formData.set('args', args)
     }
@@ -230,7 +230,7 @@ export class memes extends plugin {
   }
 }
 
-function handleArgs (key, args, atName) {
+function handleArgs (key, args, userInfos) {
   if (!args) {
     args = ''
   }
@@ -262,7 +262,7 @@ function handleArgs (key, args, atName) {
     }
     case 'my_friend': {
       if (!args) {
-        args = atName
+        args = _.trim(userInfos[0].text, '@')
       }
       argsObj = { name: args }
       break
@@ -287,11 +287,11 @@ function handleArgs (key, args, atName) {
       break
     }
   }
-  argsObj.user_infos = [
-    {
-      name: atName
+  argsObj.user_infos = userInfos.map(u => {
+    return {
+      name: _.trim(u.text, '@')
     }
-  ]
+  })
   return JSON.stringify(argsObj)
 }
 
