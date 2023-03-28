@@ -14,6 +14,11 @@ const reply = true
  * 是否强制使用#触发命令
  */
 const forceSharp = false
+/**
+ * 主人保护，撅主人时会被反撅
+ * @type {boolean}
+ */
+const masterProtectDo = true
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -173,7 +178,21 @@ export class memes extends plugin {
       if (imgUrls.length < info.params.min_images && imgUrls.indexOf(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`) === -1) {
         // 如果数量不够，补上发送者头像，且放到最前面
         let me = [`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`]
-        imgUrls = me.concat(imgUrls)
+        let done = false
+        if (targetCode === 'do' && masterProtectDo) {
+          let masters = await getMasterQQ()
+          if (imgUrls[0].startsWith('https://q1.qlogo.cn')) {
+            let split = imgUrls[0].split('=')
+            let targetQQ = split[split.length - 1]
+            if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
+              imgUrls = imgUrls.concat(me)
+              done = true
+            }
+          }
+        }
+        if (!done) {
+          imgUrls = me.concat(imgUrls)
+        }
         // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.msg.sender.user_id}`)
       }
       imgUrls = imgUrls.slice(0, Math.min(info.params.max_images, imgUrls.length))
@@ -3314,4 +3333,8 @@ function mkdirs (dirname) {
       return true
     }
   }
+}
+
+async function getMasterQQ () {
+  return (await import('../../lib/config/config.js')).default.masterQQ
 }
