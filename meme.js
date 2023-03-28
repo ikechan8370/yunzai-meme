@@ -5,7 +5,15 @@ import path from 'node:path'
 import _ from 'lodash'
 import { segment } from 'oicq'
 const baseUrl = 'https://memes.ikechan8370.com'
+/**
+ * 机器人发表情是否引用回复用户
+ * @type {boolean}
+ */
 const reply = true
+/**
+ * 是否强制使用#触发命令
+ */
+const forceSharp = false
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -39,9 +47,10 @@ export class memes extends plugin {
       ]
     }
     Object.keys(keyMap).forEach(key => {
+      let reg = forceSharp ? `^#${key}` : `^#?${key}`
       option.rule.push({
         /** 命令正则匹配 */
-        reg: `^#?${key}`,
+        reg: reg,
         /** 执行方法 */
         fnc: 'memes'
       })
@@ -88,8 +97,15 @@ export class memes extends plugin {
    */
   async memes (e) {
     // console.log(e)
-    let keys = Object.keys(keyMap).filter(k => e.msg.replace('#', '').startsWith(k))
+    let msg = e.msg.replace('#', '')
+    let keys = Object.keys(keyMap).filter(k => msg.startsWith(k))
     let target = keys[0]
+    if (target === '玩' && msg.startsWith('玩游戏')) {
+      target = '玩游戏'
+    }
+    if (target === '滚' && msg.startsWith('滚屏')) {
+      target = '滚屏'
+    }
     let targetCode = keyMap[target]
     // let target = e.msg.replace(/^#?meme(s)?/, '')
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
@@ -157,7 +173,7 @@ export class memes extends plugin {
       if (e.message.filter(m => m.type === 'at').length > 0) {
         text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
       } else {
-        text = e.sender.nickname
+        text = e.sender.card || e.sender.nickname
       }
     }
     let texts = text.split('/', info.params.max_texts)
@@ -173,7 +189,7 @@ export class memes extends plugin {
         if (e.message.filter(m => m.type === 'at').length > 0) {
           formData.append('texts', _.trim(e.message.filter(m => m.type === 'at')[0].text, '@'))
         } else {
-          formData.append('texts', e.sender.nickname)
+          formData.append('texts', e.sender.card || e.sender.nickname)
         }
       }
     }
@@ -181,7 +197,7 @@ export class memes extends plugin {
       atName = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
     }
     if (!atName) {
-      atName = e.sender.nickname
+      atName = e.sender.card || e.sender.nickname
     }
     args = handleArgs(targetCode, args, atName)
     if (args) {
