@@ -43,6 +43,12 @@ export class memes extends plugin {
           reg: '^#?(meme(s)?|表情包)帮助',
           /** 执行方法 */
           fnc: 'memesHelp'
+        },
+        {
+          /** 命令正则匹配 */
+          reg: '^#?(meme(s)?|表情包)搜索',
+          /** 执行方法 */
+          fnc: 'memesSearch'
         }
       ]
     }
@@ -59,10 +65,25 @@ export class memes extends plugin {
   }
 
   async memesHelp (e) {
-    e.reply(`【memes列表】：查看支持的memes列表\n
-    【{表情名称}】：memes列表中的表情名称，根据提供的文字或图片制作表情包\n
-    【随机meme】：随机制作一些表情包\n
-    【{表情名称}+详情】：查看该表情所支持的参数`)
+    e.reply('【memes列表】：查看支持的memes列表\n【{表情名称}】：memes列表中的表情名称，根据提供的文字或图片制作表情包\n【随机meme】：随机制作一些表情包\n【meme搜索+关键词】：搜索表情包关键词\n【{表情名称}+详情】：查看该表情所支持的参数')
+  }
+
+  async memesSearch (e) {
+    let search = e.msg.replace(/^#?(meme(s)?|表情包)搜索/, '').trim()
+    if (!search) {
+      await e.reply('你要搜什么？')
+      return true
+    }
+    let hits = Object.keys(keyMap).filter(k => k.indexOf(search) > -1)
+    let result = '搜索结果'
+    if (hits.length > 0) {
+      for (let i = 0; i < hits.length; i++) {
+        result += `\n${i + 1}. ${hits[i]}`
+      }
+    } else {
+      result += '\n无'
+    }
+    await e.reply(result, e.isGroup)
   }
 
   async memesList (e) {
