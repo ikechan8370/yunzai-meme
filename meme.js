@@ -209,6 +209,9 @@ export class memes extends plugin {
         formData.append('images', new File([buffer], `avatar_${i}.jpg`, { type: 'image/jpeg' }))
       }
     }
+    if (text && info.params.max_texts === 0) {
+      return false
+    }
     if (!text && info.params.min_texts > 0) {
       if (e.message.filter(m => m.type === 'at').length > 0) {
         text = _.trim(e.message.filter(m => m.type === 'at')[0].text, '@')
@@ -235,9 +238,14 @@ export class memes extends plugin {
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
       userInfos = e.message.filter(m => m.type === 'at')
+      let mm = await e.group.getMemberMap()
+      userInfos.forEach(ui => {
+        let user = mm.get(ui.qq)
+        ui.gender = user.sex
+      })
     }
     if (!userInfos) {
-      userInfos = [e.sender]
+      userInfos = [{ text: e.sender.card || e.sender.nickname, gender: e.sender.sex }]
     }
     args = handleArgs(targetCode, args, userInfos)
     if (args) {
@@ -329,7 +337,8 @@ function handleArgs (key, args, userInfos) {
   }
   argsObj.user_infos = userInfos.map(u => {
     return {
-      name: _.trim(u.text, '@')
+      name: _.trim(u.text, '@'),
+      gender: u.gender
     }
   })
   return JSON.stringify(argsObj)
