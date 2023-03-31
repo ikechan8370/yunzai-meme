@@ -242,6 +242,7 @@ export class memes extends plugin {
       userInfos.forEach(ui => {
         let user = mm.get(ui.qq)
         ui.gender = user.sex
+        ui.text = user.card || user.nickname
       })
     }
     if (!userInfos) {
