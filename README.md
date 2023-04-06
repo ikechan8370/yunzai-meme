@@ -10,6 +10,8 @@
 
 更新：ARM版镜像，由@Regalia提供：`regaliaf/meme-generator`
 
+更新：MeetWq/meme-generator仓库也提供了docker镜像和Dockfile
+
 要求不高或者没条件可以用内置的API。
 
 ## 安装
