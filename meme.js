@@ -351,36 +351,205 @@ function handleArgs (key, args, userInfos) {
 }
 
 const keyMap = {
-  偷学: 'learn',
-  膜: 'worship',
-  膜拜: 'worship',
-  拍头: 'beat_head',
-  我老婆: 'my_wife',
-  这是我老婆: 'my_wife',
-  胡桃啃: 'hutao_bite',
-  等价无穷小: 'lim_x_0',
-  追列车: 'chase_train',
-  追火车: 'chase_train',
-  继续干活: 'back_to_work',
-  打工人: 'back_to_work',
-  一巴掌: 'slap',
-  诺基亚: 'nokia',
-  有内鬼: 'nokia',
+  问问: 'ask',
+  咖波撞: 'capoo_strike',
+  咖波头槌: 'capoo_strike',
+  击剑: 'fencing',
+  '🤺': 'fencing',
+  吸: 'suck',
+  嗦: 'suck',
+  许愿失败: 'wish_fail',
+  捶爆: 'thump_wildly',
+  爆捶: 'thump_wildly',
+  yt: 'youtube',
+  youtube: 'youtube',
   万花筒: 'kaleidoscope',
   万花镜: 'kaleidoscope',
-  震惊: 'shock',
-  群青: 'cyan',
-  罗永浩说: 'luoyonghao_say',
-  胡桃平板: 'walnut_pad',
-  推锅: 'pass_the_buck',
-  甩锅: 'pass_the_buck',
-  土豆: 'potato',
+  手枪: 'gun',
+  恐龙: 'dinosaur',
+  小恐龙: 'dinosaur',
+  卡比锤: 'kirby_hammer',
+  卡比重锤: 'kirby_hammer',
+  出警: 'police',
+  警察: 'police1',
   加班: 'overtime',
+  二次元入口: 'acg_entrance',
+  一起: 'together',
+  流星: 'meteor',
+  看图标: 'look_this_icon',
+  砸: 'smash',
+  注意力涣散: 'distracted',
+  可达鸭: 'psyduck',
+  google: 'google',
+  鲁迅说: 'luxun_say',
+  鲁迅说过: 'luxun_say',
+  快跑: 'run',
+  我永远喜欢: 'always_like',
+  安全感: 'safe_sense',
+  高血压: 'blood_pressure',
+  胡桃啃: 'hutao_bite',
   需要: 'need',
   你可能需要: 'need',
-  这像画吗: 'paint',
-  不要靠近: 'dont_touch',
+  喜报: 'good_news',
+  一直: 'always',
+  像样的亲亲: 'decent_kiss',
+  挠头: 'scratch_head',
+  防诱拐: 'anti_kidnap',
+  拍: 'pat',
+  亚文化取名机: 'name_generator',
+  亚名: 'name_generator',
+  恍惚: 'trance',
+  继续干活: 'back_to_work',
+  打工人: 'back_to_work',
+  贴: 'rub',
+  贴贴: 'rub',
+  蹭: 'rub',
+  蹭蹭: 'rub',
+  等价无穷小: 'lim_x_0',
+  胡桃平板: 'walnut_pad',
+  升天: 'ascension',
+  遇到困难请拨打: 'call_110',
+  急急国王: 'jiji_king',
+  捂脸: 'cover_face',
+  入典: 'dianzhongdian',
+  典中典: 'dianzhongdian',
+  黑白草图: 'dianzhongdian',
+  刮刮乐: 'scratchcard',
+  小画家: 'painter',
+  国旗: 'china_flag',
+  丢: 'throw',
+  扔: 'throw',
+  狂爱: 'fanatic',
+  狂粉: 'fanatic',
+  对称: 'symmetric',
+  坐牢: 'imprison',
+  离婚协议: 'divorce',
+  离婚申请: 'divorce',
+  膜: 'worship',
+  膜拜: 'worship',
+  不喊我: 'not_call_me',
+  波纹: 'wave',
+  听音乐: 'listen_music',
+  看扁: 'look_flat',
+  震惊: 'shock',
+  可莉吃: 'klee_eat',
+  整点薯条: 'find_chips',
+  远离: 'keep_away',
+  字符画: 'charpic',
+  奶茶: 'bubble_tea',
+  记仇: 'hold_grudge',
+  我老婆: 'my_wife',
+  这是我老婆: 'my_wife',
+  看书: 'read_book',
+  抱紧: 'hold_tight',
+  吃: 'eat',
+  阿尼亚喜欢: 'anya_suki',
   锤: 'hammer',
+  咖波画: 'capoo_draw',
+  坐得住: 'sit_still',
+  坐的住: 'sit_still',
+  交个朋友: 'make_friend',
+  咖波蹭: 'capoo_rub',
+  咖波贴: 'capoo_rub',
+  舰长: 'captain',
+  xx起来了: 'wakeup',
+  口号: 'slogan',
+  这像画吗: 'paint',
+  采访: 'interview',
+  打穿: 'hit_screen',
+  打穿屏幕: 'hit_screen',
+  啃: 'bite',
+  猫羽雫举牌: 'nekoha_holdsign',
+  猫猫举牌: 'nekoha_holdsign',
+  复读: 'repeat',
+  别说了: 'shutup',
+  douyin: 'douyin',
+  舔: 'prpr',
+  舔屏: 'prpr',
+  prpr: 'prpr',
+  吴京: 'wujing',
+  鼓掌: 'applaud',
+  顶: 'play',
+  玩: 'play',
+  打印: 'printing',
+  踢球: 'kick_ball',
+  打拳: 'punch',
+  一巴掌: 'slap',
+  滚: 'roll',
+  上瘾: 'addiction',
+  毒瘾发作: 'addiction',
+  群青: 'cyan',
+  诺基亚: 'nokia',
+  有内鬼: 'nokia',
+  想什么: 'think_what',
+  啾啾: 'jiujiu',
+  土豆: 'potato',
+  捣: 'pound',
+  撕: 'rip',
+  举牌: 'raise_sign',
+  咖波说: 'capoo_say',
+  拍头: 'beat_head',
+  完美: 'perfect',
+  爬: 'crawl',
+  低语: 'murmur',
+  布洛妮娅举牌: 'bronya_holdsign',
+  大鸭鸭举牌: 'bronya_holdsign',
+  转: 'turn',
+  '5000兆': '5000choyen',
+  兑换券: 'coupon',
+  加载中: 'loading',
+  不文明: 'incivilization',
+  我朋友说: 'my_friend',
+  一样: 'alike',
+  紧贴: 'tightly',
+  紧紧贴着: 'tightly',
+  亲: 'kiss',
+  亲亲: 'kiss',
+  '为什么@我': 'why_at_me',
+  结婚申请: 'marriage',
+  结婚登记: 'marriage',
+  追列车: 'chase_train',
+  追火车: 'chase_train',
+  木鱼: 'wooden_fish',
+  凯露指: 'karyl_point',
+  诈尸: 'rise_dead',
+  秽土转生: 'rise_dead',
+  唐可可举牌: 'tankuku_raisesign',
+  万能表情: 'universal',
+  空白表情: 'universal',
+  摸: 'petpet',
+  摸摸: 'petpet',
+  摸头: 'petpet',
+  rua: 'petpet',
+  罗永浩说: 'luoyonghao_say',
+  精神支柱: 'support',
+  推锅: 'pass_the_buck',
+  甩锅: 'pass_the_buck',
+  永远爱你: 'love_you',
+  垃圾: 'garbage',
+  垃圾桶: 'garbage',
+  小天使: 'little_angel',
+  墙纸: 'wallpaper',
+  敲: 'knock',
+  悲报: 'bad_news',
+  胡桃放大: 'walnut_zoom',
+  哈哈镜: 'funny_mirror',
+  玩游戏: 'play_game',
+  捶: 'thump',
+  无响应: 'no_response',
+  踩: 'step_on',
+  ph: 'pornhub',
+  pornhub: 'pornhub',
+  迷惑: 'confuse',
+  滚屏: 'scroll',
+  波奇手稿: 'bocchi_draft',
+  怒撕: 'rip_angrily',
+  抛: 'throw_gif',
+  掷: 'throw_gif',
+  风车转: 'windmill_turn',
+  不要靠近: 'dont_touch',
+  讲课: 'teach',
+  敲黑板: 'teach',
   王境泽: 'wangjingze',
   为所欲为: 'weisuoyuwei',
   馋身子: 'chanshenzi',
@@ -391,180 +560,11 @@ const keyMap = {
   你好骚啊: 'nihaosaoa',
   食屎啦你: 'shishilani',
   五年怎么过的: 'wunian',
-  一直: 'always',
-  无响应: 'no_response',
-  看书: 'read_book',
-  升天: 'ascension',
-  鼓掌: 'applaud',
-  讲课: 'teach',
-  敲黑板: 'teach',
-  远离: 'keep_away',
-  打穿: 'hit_screen',
-  打穿屏幕: 'hit_screen',
-  击剑: 'fencing',
-  '🤺': 'fencing',
-  喜报: 'good_news',
-  贴: 'rub',
-  贴贴: 'rub',
-  蹭: 'rub',
-  蹭蹭: 'rub',
-  吴京: 'wujing',
-  举牌: 'raise_sign',
-  摸: 'petpet',
-  摸摸: 'petpet',
-  摸头: 'petpet',
-  rua: 'petpet',
-  急急国王: 'jiji_king',
-  砸: 'smash',
-  离婚协议: 'divorce',
-  离婚申请: 'divorce',
-  坐牢: 'imprison',
-  坐得住: 'sit_still',
-  坐的住: 'sit_still',
-  凯露指: 'karyl_point',
-  防诱拐: 'anti_kidnap',
-  xx起来了: 'wakeup',
-  永远爱你: 'love_you',
-  我朋友说: 'my_friend',
   关注: 'follow',
-  我永远喜欢: 'always_like',
-  听音乐: 'listen_music',
-  万能表情: 'universal',
-  空白表情: 'universal',
   低情商xx高情商xx: 'high_EQ',
-  哈哈镜: 'funny_mirror',
-  douyin: 'douyin',
-  捶爆: 'thump_wildly',
-  爆捶: 'thump_wildly',
-  一样: 'alike',
-  鲁迅说: 'luxun_say',
-  鲁迅说过: 'luxun_say',
-  怒撕: 'rip_angrily',
-  国旗: 'china_flag',
-  加载中: 'loading',
-  可达鸭: 'psyduck',
-  可莉吃: 'klee_eat',
-  遇到困难请拨打: 'call_110',
-  踩: 'step_on',
-  高血压: 'blood_pressure',
-  啃: 'bite',
-  入典: 'dianzhongdian',
-  典中典: 'dianzhongdian',
-  黑白草图: 'dianzhongdian',
-  阿尼亚喜欢: 'anya_suki',
-  整点薯条: 'find_chips',
-  采访: 'interview',
-  不喊我: 'not_call_me',
-  拍: 'pat',
-  小画家: 'painter',
-  恍惚: 'trance',
-  交个朋友: 'make_friend',
-  快跑: 'run',
-  墙纸: 'wallpaper',
-  像样的亲亲: 'decent_kiss',
-  打拳: 'punch',
-  捶: 'thump',
-  字符画: 'charpic',
-  悲报: 'bad_news',
-  诈尸: 'rise_dead',
-  秽土转生: 'rise_dead',
-  波纹: 'wave',
-  对称: 'symmetric',
-  低语: 'murmur',
   搓: 'twist',
-  捣: 'pound',
-  撕: 'rip',
-  抱紧: 'hold_tight',
-  玩游戏: 'play_game',
-  打印: 'printing',
-  猫羽雫举牌: 'nekoha_holdsign',
-  猫猫举牌: 'nekoha_holdsign',
-  不文明: 'incivilization',
-  胡桃放大: 'walnut_zoom',
-  记仇: 'hold_grudge',
-  想什么: 'think_what',
-  yt: 'youtube',
-  youtube: 'youtube',
-  舔: 'prpr',
-  舔屏: 'prpr',
-  prpr: 'prpr',
-  狂爱: 'fanatic',
-  狂粉: 'fanatic',
-  奶茶: 'bubble_tea',
-  出警: 'police',
-  警察: 'police1',
-  亚文化取名机: 'name_generator',
-  亚名: 'name_generator',
-  啾啾: 'jiujiu',
-  紧贴: 'tightly',
-  紧紧贴着: 'tightly',
-  看图标: 'look_this_icon',
-  迷惑: 'confuse',
-  小天使: 'little_angel',
-  问问: 'ask',
-  注意力涣散: 'distracted',
-  抛: 'throw_gif',
-  掷: 'throw_gif',
-  google: 'google',
-  挠头: 'scratch_head',
-  滚屏: 'scroll',
-  完美: 'perfect',
-  别说了: 'shutup',
-  刮刮乐: 'scratchcard',
-  咖波画: 'capoo_draw',
-  吸: 'suck',
-  嗦: 'suck',
-  舰长: 'captain',
-  恐龙: 'dinosaur',
-  小恐龙: 'dinosaur',
   抱大腿: 'hug_leg',
-  结婚申请: 'marriage',
-  结婚登记: 'marriage',
-  精神支柱: 'support',
-  咖波蹭: 'capoo_rub',
-  咖波贴: 'capoo_rub',
-  捂脸: 'cover_face',
-  垃圾: 'garbage',
-  垃圾桶: 'garbage',
-  兑换券: 'coupon',
-  木鱼: 'wooden_fish',
-  丢: 'throw',
-  扔: 'throw',
-  转: 'turn',
-  复读: 'repeat',
-  唐可可举牌: 'tankuku_raisesign',
-  '为什么@我': 'why_at_me',
-  上瘾: 'addiction',
-  毒瘾发作: 'addiction',
-  二次元入口: 'acg_entrance',
-  踢球: 'kick_ball',
-  波奇手稿: 'bocchi_draft',
-  咖波撞: 'capoo_strike',
-  咖波头槌: 'capoo_strike',
-  敲: 'knock',
-  ph: 'pornhub',
-  pornhub: 'pornhub',
-  吃: 'eat',
-  卡比锤: 'kirby_hammer',
-  卡比重锤: 'kirby_hammer',
-  咖波说: 'capoo_say',
-  布洛妮娅举牌: 'bronya_holdsign',
-  大鸭鸭举牌: 'bronya_holdsign',
-  许愿失败: 'wish_fail',
-  滚: 'roll',
-  手枪: 'gun',
-  安全感: 'safe_sense',
-  爬: 'crawl',
-  口号: 'slogan',
-  流星: 'meteor',
-  亲: 'kiss',
-  亲亲: 'kiss',
-  顶: 'play',
-  玩: 'play',
-  风车转: 'windmill_turn',
-  一起: 'together',
-  看扁: 'look_flat',
-  '5000兆': '5000choyen',
+  偷学: 'learn',
   看看你的: 'can_can_need',
   撅: 'do',
   狠狠地撅: 'do',
@@ -617,10 +617,10 @@ const detail = code => {
 }
 
 const infos = {
-  learn: {
-    key: 'learn',
+  ask: {
+    key: 'ask',
     keywords: [
-      '偷学'
+      '问问'
     ],
     patterns: [],
     params: {
@@ -628,17 +628,80 @@ const infos = {
       max_images: 1,
       min_texts: 0,
       max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  capoo_strike: {
+    key: 'capoo_strike',
+    keywords: [
+      '咖波撞',
+      '咖波头槌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  fencing: {
+    key: 'fencing',
+    keywords: [
+      '击剑',
+      '🤺'
+    ],
+    patterns: [],
+    params: {
+      min_images: 2,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  suck: {
+    key: 'suck',
+    keywords: [
+      '吸',
+      '嗦'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  wish_fail: {
+    key: 'wish_fail',
+    keywords: [
+      '许愿失败'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
       default_texts: [
-        '偷学群友数理基础'
+        '我要对象'
       ],
       args: []
     }
   },
-  worship: {
-    key: 'worship',
+  thump_wildly: {
+    key: 'thump_wildly',
     keywords: [
-      '膜',
-      '膜拜'
+      '捶爆',
+      '爆捶'
     ],
     patterns: [],
     params: {
@@ -650,128 +713,21 @@ const infos = {
       args: []
     }
   },
-  beat_head: {
-    key: 'beat_head',
+  youtube: {
+    key: 'youtube',
     keywords: [
-      '拍头'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  my_wife: {
-    key: 'my_wife',
-    keywords: [
-      '我老婆',
-      '这是我老婆'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  hutao_bite: {
-    key: 'hutao_bite',
-    keywords: [
-      '胡桃啃'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  lim_x_0: {
-    key: 'lim_x_0',
-    keywords: [
-      '等价无穷小'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  chase_train: {
-    key: 'chase_train',
-    keywords: [
-      '追列车',
-      '追火车'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  back_to_work: {
-    key: 'back_to_work',
-    keywords: [
-      '继续干活',
-      '打工人'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  slap: {
-    key: 'slap',
-    keywords: [
-      '一巴掌'
+      'yt',
+      'youtube'
     ],
     patterns: [],
     params: {
       min_images: 0,
       max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  nokia: {
-    key: 'nokia',
-    keywords: [
-      '诺基亚',
-      '有内鬼'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
+      min_texts: 2,
+      max_texts: 2,
       default_texts: [
-        '无内鬼，继续交易'
+        'Porn',
+        'Hub'
       ],
       args: []
     }
@@ -800,6 +756,880 @@ const infos = {
       ]
     }
   },
+  gun: {
+    key: 'gun',
+    keywords: [
+      '手枪'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'position',
+          type: 'string',
+          description: '枪的位置',
+          default: 'left',
+          enum: [
+            'left',
+            'right',
+            'both'
+          ]
+        }
+      ]
+    }
+  },
+  dinosaur: {
+    key: 'dinosaur',
+    keywords: [
+      '恐龙',
+      '小恐龙'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  kirby_hammer: {
+    key: 'kirby_hammer',
+    keywords: [
+      '卡比锤',
+      '卡比重锤'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'circle',
+          type: 'boolean',
+          description: '是否将图片变为圆形',
+          default: false,
+          enum: null
+        }
+      ]
+    }
+  },
+  police: {
+    key: 'police',
+    keywords: [
+      '出警'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  police1: {
+    key: 'police1',
+    keywords: [
+      '警察'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  overtime: {
+    key: 'overtime',
+    keywords: [
+      '加班'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  acg_entrance: {
+    key: 'acg_entrance',
+    keywords: [
+      '二次元入口'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '走，跟我去二次元吧'
+      ],
+      args: []
+    }
+  },
+  together: {
+    key: 'together',
+    keywords: [
+      '一起'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  meteor: {
+    key: 'meteor',
+    keywords: [
+      '流星'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '我要对象'
+      ],
+      args: []
+    }
+  },
+  look_this_icon: {
+    key: 'look_this_icon',
+    keywords: [
+      '看图标'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '朋友\n先看看这个图标再说话'
+      ],
+      args: []
+    }
+  },
+  smash: {
+    key: 'smash',
+    keywords: [
+      '砸'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  distracted: {
+    key: 'distracted',
+    keywords: [
+      '注意力涣散'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  psyduck: {
+    key: 'psyduck',
+    keywords: [
+      '可达鸭'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 2,
+      max_texts: 2,
+      default_texts: [
+        '来份',
+        '涩图'
+      ],
+      args: []
+    }
+  },
+  google: {
+    key: 'google',
+    keywords: [
+      'google'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        'Google'
+      ],
+      args: []
+    }
+  },
+  luxun_say: {
+    key: 'luxun_say',
+    keywords: [
+      '鲁迅说',
+      '鲁迅说过'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '我没有说过这句话'
+      ],
+      args: []
+    }
+  },
+  run: {
+    key: 'run',
+    keywords: [
+      '快跑'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '快跑'
+      ],
+      args: []
+    }
+  },
+  always_like: {
+    key: 'always_like',
+    keywords: [
+      '我永远喜欢'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 6,
+      min_texts: 0,
+      max_texts: 6,
+      default_texts: [],
+      args: []
+    }
+  },
+  safe_sense: {
+    key: 'safe_sense',
+    keywords: [
+      '安全感'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '你给我的安全感\n远不及它的万分之一'
+      ],
+      args: []
+    }
+  },
+  blood_pressure: {
+    key: 'blood_pressure',
+    keywords: [
+      '高血压'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  hutao_bite: {
+    key: 'hutao_bite',
+    keywords: [
+      '胡桃啃'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  need: {
+    key: 'need',
+    keywords: [
+      '需要',
+      '你可能需要'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  good_news: {
+    key: 'good_news',
+    keywords: [
+      '喜报'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '悲报'
+      ],
+      args: []
+    }
+  },
+  always: {
+    key: 'always',
+    keywords: [
+      '一直'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'mode',
+          type: 'string',
+          description: '生成模式',
+          default: 'normal',
+          enum: [
+            'normal',
+            'loop',
+            'circle'
+          ]
+        }
+      ]
+    }
+  },
+  decent_kiss: {
+    key: 'decent_kiss',
+    keywords: [
+      '像样的亲亲'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  scratch_head: {
+    key: 'scratch_head',
+    keywords: [
+      '挠头'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  anti_kidnap: {
+    key: 'anti_kidnap',
+    keywords: [
+      '防诱拐'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  pat: {
+    key: 'pat',
+    keywords: [
+      '拍'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  name_generator: {
+    key: 'name_generator',
+    keywords: [
+      '亚文化取名机',
+      '亚名'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  trance: {
+    key: 'trance',
+    keywords: [
+      '恍惚'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  back_to_work: {
+    key: 'back_to_work',
+    keywords: [
+      '继续干活',
+      '打工人'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  rub: {
+    key: 'rub',
+    keywords: [
+      '贴',
+      '贴贴',
+      '蹭',
+      '蹭蹭'
+    ],
+    patterns: [],
+    params: {
+      min_images: 2,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  lim_x_0: {
+    key: 'lim_x_0',
+    keywords: [
+      '等价无穷小'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  walnut_pad: {
+    key: 'walnut_pad',
+    keywords: [
+      '胡桃平板'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  ascension: {
+    key: 'ascension',
+    keywords: [
+      '升天'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '学的是机械'
+      ],
+      args: []
+    }
+  },
+  call_110: {
+    key: 'call_110',
+    keywords: [
+      '遇到困难请拨打'
+    ],
+    patterns: [],
+    params: {
+      min_images: 2,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  jiji_king: {
+    key: 'jiji_king',
+    keywords: [
+      '急急国王'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 11,
+      min_texts: 0,
+      max_texts: 11,
+      default_texts: [],
+      args: [
+        {
+          name: 'circle',
+          type: 'boolean',
+          description: '是否将图片变为圆形',
+          default: false,
+          enum: null
+        }
+      ]
+    }
+  },
+  cover_face: {
+    key: 'cover_face',
+    keywords: [
+      '捂脸'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  dianzhongdian: {
+    key: 'dianzhongdian',
+    keywords: [
+      '入典',
+      '典中典',
+      '黑白草图'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 1,
+      max_texts: 2,
+      default_texts: [
+        '救命啊'
+      ],
+      args: []
+    }
+  },
+  scratchcard: {
+    key: 'scratchcard',
+    keywords: [
+      '刮刮乐'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '谢谢参与'
+      ],
+      args: []
+    }
+  },
+  painter: {
+    key: 'painter',
+    keywords: [
+      '小画家'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  china_flag: {
+    key: 'china_flag',
+    keywords: [
+      '国旗'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  throw: {
+    key: 'throw',
+    keywords: [
+      '丢',
+      '扔'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  fanatic: {
+    key: 'fanatic',
+    keywords: [
+      '狂爱',
+      '狂粉'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '洛天依'
+      ],
+      args: []
+    }
+  },
+  symmetric: {
+    key: 'symmetric',
+    keywords: [
+      '对称'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'direction',
+          type: 'string',
+          description: '对称方向',
+          default: 'left',
+          enum: [
+            'left',
+            'right',
+            'top',
+            'bottom'
+          ]
+        }
+      ]
+    }
+  },
+  imprison: {
+    key: 'imprison',
+    keywords: [
+      '坐牢'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '我发涩图被抓起来了'
+      ],
+      args: []
+    }
+  },
+  divorce: {
+    key: 'divorce',
+    keywords: [
+      '离婚协议',
+      '离婚申请'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  worship: {
+    key: 'worship',
+    keywords: [
+      '膜',
+      '膜拜'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  not_call_me: {
+    key: 'not_call_me',
+    keywords: [
+      '不喊我'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '开银趴不喊我是吧'
+      ],
+      args: []
+    }
+  },
+  wave: {
+    key: 'wave',
+    keywords: [
+      '波纹'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  listen_music: {
+    key: 'listen_music',
+    keywords: [
+      '听音乐'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  look_flat: {
+    key: 'look_flat',
+    keywords: [
+      '看扁'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '可恶...被人看扁了'
+      ],
+      args: [
+        {
+          name: 'ratio',
+          type: 'integer',
+          description: '图片“压扁”比例',
+          default: 2,
+          enum: null
+        }
+      ]
+    }
+  },
   shock: {
     key: 'shock',
     keywords: [
@@ -811,6 +1641,619 @@ const infos = {
       max_images: 1,
       min_texts: 0,
       max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  klee_eat: {
+    key: 'klee_eat',
+    keywords: [
+      '可莉吃'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  find_chips: {
+    key: 'find_chips',
+    keywords: [
+      '整点薯条'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 4,
+      max_texts: 4,
+      default_texts: [
+        '我们要飞向何方',
+        '我打算待会去码头整点薯条',
+        '我说的是归根结底，活着是为了什么',
+        '为了待会去码头整点薯条'
+      ],
+      args: []
+    }
+  },
+  keep_away: {
+    key: 'keep_away',
+    keywords: [
+      '远离'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 8,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '如何提高社交质量 : \n远离以下头像的人'
+      ],
+      args: []
+    }
+  },
+  charpic: {
+    key: 'charpic',
+    keywords: [
+      '字符画'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  bubble_tea: {
+    key: 'bubble_tea',
+    keywords: [
+      '奶茶'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'position',
+          type: 'string',
+          description: '奶茶的位置',
+          default: 'right',
+          enum: [
+            'right',
+            'left',
+            'both'
+          ]
+        }
+      ]
+    }
+  },
+  hold_grudge: {
+    key: 'hold_grudge',
+    keywords: [
+      '记仇'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '群友不发涩图'
+      ],
+      args: []
+    }
+  },
+  my_wife: {
+    key: 'my_wife',
+    keywords: [
+      '我老婆',
+      '这是我老婆'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  read_book: {
+    key: 'read_book',
+    keywords: [
+      '看书'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  hold_tight: {
+    key: 'hold_tight',
+    keywords: [
+      '抱紧'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  eat: {
+    key: 'eat',
+    keywords: [
+      '吃'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  anya_suki: {
+    key: 'anya_suki',
+    keywords: [
+      '阿尼亚喜欢'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '阿尼亚喜欢这个'
+      ],
+      args: []
+    }
+  },
+  hammer: {
+    key: 'hammer',
+    keywords: [
+      '锤'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  capoo_draw: {
+    key: 'capoo_draw',
+    keywords: [
+      '咖波画'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  sit_still: {
+    key: 'sit_still',
+    keywords: [
+      '坐得住',
+      '坐的住'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  make_friend: {
+    key: 'make_friend',
+    keywords: [
+      '交个朋友'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  capoo_rub: {
+    key: 'capoo_rub',
+    keywords: [
+      '咖波蹭',
+      '咖波贴'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  captain: {
+    key: 'captain',
+    keywords: [
+      '舰长'
+    ],
+    patterns: [],
+    params: {
+      min_images: 2,
+      max_images: 5,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  wakeup: {
+    key: 'wakeup',
+    keywords: [
+      'xx起来了'
+    ],
+    patterns: [
+      '(.*?)\\s+起来了'
+    ],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '好'
+      ],
+      args: []
+    }
+  },
+  slogan: {
+    key: 'slogan',
+    keywords: [
+      '口号'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 6,
+      max_texts: 6,
+      default_texts: [
+        '我们是谁？',
+        '浙大人！',
+        '到浙大来做什么？',
+        '混！',
+        '将来毕业后要做什么样的人？',
+        '混混！'
+      ],
+      args: []
+    }
+  },
+  paint: {
+    key: 'paint',
+    keywords: [
+      '这像画吗'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  interview: {
+    key: 'interview',
+    keywords: [
+      '采访'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '采访大佬经验'
+      ],
+      args: []
+    }
+  },
+  hit_screen: {
+    key: 'hit_screen',
+    keywords: [
+      '打穿',
+      '打穿屏幕'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  bite: {
+    key: 'bite',
+    keywords: [
+      '啃'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  nekoha_holdsign: {
+    key: 'nekoha_holdsign',
+    keywords: [
+      '猫羽雫举牌',
+      '猫猫举牌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        'V我50'
+      ],
+      args: []
+    }
+  },
+  repeat: {
+    key: 'repeat',
+    keywords: [
+      '复读'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 5,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '救命啊'
+      ],
+      args: []
+    }
+  },
+  shutup: {
+    key: 'shutup',
+    keywords: [
+      '别说了'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '你不要再说了'
+      ],
+      args: []
+    }
+  },
+  douyin: {
+    key: 'douyin',
+    keywords: [
+      'douyin'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        'douyin'
+      ],
+      args: []
+    }
+  },
+  prpr: {
+    key: 'prpr',
+    keywords: [
+      '舔',
+      '舔屏',
+      'prpr'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  wujing: {
+    key: 'wujing',
+    keywords: [
+      '吴京'
+    ],
+    patterns: [
+      '吴京[\\s:：]*(.*?)中国(.*)'
+    ],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 2,
+      max_texts: 2,
+      default_texts: [
+        '不买华为不是',
+        '人'
+      ],
+      args: []
+    }
+  },
+  applaud: {
+    key: 'applaud',
+    keywords: [
+      '鼓掌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  play: {
+    key: 'play',
+    keywords: [
+      '顶',
+      '玩'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  printing: {
+    key: 'printing',
+    keywords: [
+      '打印'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  kick_ball: {
+    key: 'kick_ball',
+    keywords: [
+      '踢球'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  punch: {
+    key: 'punch',
+    keywords: [
+      '打拳'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  slap: {
+    key: 'slap',
+    keywords: [
+      '一巴掌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  roll: {
+    key: 'roll',
+    keywords: [
+      '滚'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  addiction: {
+    key: 'addiction',
+    keywords: [
+      '上瘾',
+      '毒瘾发作'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
       default_texts: [],
       args: []
     }
@@ -830,6 +2273,525 @@ const infos = {
       args: []
     }
   },
+  nokia: {
+    key: 'nokia',
+    keywords: [
+      '诺基亚',
+      '有内鬼'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '无内鬼，继续交易'
+      ],
+      args: []
+    }
+  },
+  think_what: {
+    key: 'think_what',
+    keywords: [
+      '想什么'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  jiujiu: {
+    key: 'jiujiu',
+    keywords: [
+      '啾啾'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  potato: {
+    key: 'potato',
+    keywords: [
+      '土豆'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  pound: {
+    key: 'pound',
+    keywords: [
+      '捣'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  rip: {
+    key: 'rip',
+    keywords: [
+      '撕'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  raise_sign: {
+    key: 'raise_sign',
+    keywords: [
+      '举牌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '大佬带带我'
+      ],
+      args: []
+    }
+  },
+  capoo_say: {
+    key: 'capoo_say',
+    keywords: [
+      '咖波说'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 10,
+      default_texts: [
+        '寄'
+      ],
+      args: []
+    }
+  },
+  beat_head: {
+    key: 'beat_head',
+    keywords: [
+      '拍头'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  perfect: {
+    key: 'perfect',
+    keywords: [
+      '完美'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  crawl: {
+    key: 'crawl',
+    keywords: [
+      '爬'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'number',
+          type: 'integer',
+          description: '图片编号，范围为 1~92',
+          default: 0,
+          enum: null
+        }
+      ]
+    }
+  },
+  murmur: {
+    key: 'murmur',
+    keywords: [
+      '低语'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '你的假期余额不足'
+      ],
+      args: []
+    }
+  },
+  bronya_holdsign: {
+    key: 'bronya_holdsign',
+    keywords: [
+      '布洛妮娅举牌',
+      '大鸭鸭举牌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        'V我50'
+      ],
+      args: []
+    }
+  },
+  turn: {
+    key: 'turn',
+    keywords: [
+      '转'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  '5000choyen': {
+    key: '5000choyen',
+    keywords: [
+      '5000兆'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 2,
+      max_texts: 2,
+      default_texts: [
+        '我去',
+        '洛天依'
+      ],
+      args: []
+    }
+  },
+  coupon: {
+    key: 'coupon',
+    keywords: [
+      '兑换券'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  loading: {
+    key: 'loading',
+    keywords: [
+      '加载中'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  incivilization: {
+    key: 'incivilization',
+    keywords: [
+      '不文明'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '你刚才说的话不是很礼貌！'
+      ],
+      args: []
+    }
+  },
+  my_friend: {
+    key: 'my_friend',
+    keywords: [
+      '我朋友说'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 1,
+      max_texts: 10,
+      default_texts: [
+        '让我康康'
+      ],
+      args: [
+        {
+          name: 'name',
+          type: 'string',
+          description: '指定名字',
+          default: '',
+          enum: null
+        }
+      ]
+    }
+  },
+  alike: {
+    key: 'alike',
+    keywords: [
+      '一样'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  tightly: {
+    key: 'tightly',
+    keywords: [
+      '紧贴',
+      '紧紧贴着'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  kiss: {
+    key: 'kiss',
+    keywords: [
+      '亲',
+      '亲亲'
+    ],
+    patterns: [],
+    params: {
+      min_images: 2,
+      max_images: 2,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  why_at_me: {
+    key: 'why_at_me',
+    keywords: [
+      '为什么@我'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  marriage: {
+    key: 'marriage',
+    keywords: [
+      '结婚申请',
+      '结婚登记'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  chase_train: {
+    key: 'chase_train',
+    keywords: [
+      '追列车',
+      '追火车'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  wooden_fish: {
+    key: 'wooden_fish',
+    keywords: [
+      '木鱼'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  karyl_point: {
+    key: 'karyl_point',
+    keywords: [
+      '凯露指'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  rise_dead: {
+    key: 'rise_dead',
+    keywords: [
+      '诈尸',
+      '秽土转生'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  tankuku_raisesign: {
+    key: 'tankuku_raisesign',
+    keywords: [
+      '唐可可举牌'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  universal: {
+    key: 'universal',
+    keywords: [
+      '万能表情',
+      '空白表情'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 1,
+      max_texts: 10,
+      default_texts: [
+        '在此处添加文字'
+      ],
+      args: []
+    }
+  },
+  petpet: {
+    key: 'petpet',
+    keywords: [
+      '摸',
+      '摸摸',
+      '摸头',
+      'rua'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: [
+        {
+          name: 'circle',
+          type: 'boolean',
+          description: '是否将图片变为圆形',
+          default: false,
+          enum: null
+        }
+      ]
+    }
+  },
   luoyonghao_say: {
     key: 'luoyonghao_say',
     keywords: [
@@ -847,10 +2809,10 @@ const infos = {
       args: []
     }
   },
-  walnut_pad: {
-    key: 'walnut_pad',
+  support: {
+    key: 'support',
     keywords: [
-      '胡桃平板'
+      '精神支柱'
     ],
     patterns: [],
     params: {
@@ -880,10 +2842,10 @@ const infos = {
       args: []
     }
   },
-  potato: {
-    key: 'potato',
+  love_you: {
+    key: 'love_you',
     keywords: [
-      '土豆'
+      '永远爱你'
     ],
     patterns: [],
     params: {
@@ -895,10 +2857,11 @@ const infos = {
       args: []
     }
   },
-  overtime: {
-    key: 'overtime',
+  garbage: {
+    key: 'garbage',
     keywords: [
-      '加班'
+      '垃圾',
+      '垃圾桶'
     ],
     patterns: [],
     params: {
@@ -910,11 +2873,25 @@ const infos = {
       args: []
     }
   },
-  need: {
-    key: 'need',
+  little_angel: {
+    key: 'little_angel',
     keywords: [
-      '需要',
-      '你可能需要'
+      '小天使'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [],
+      args: []
+    }
+  },
+  wallpaper: {
+    key: 'wallpaper',
+    keywords: [
+      '墙纸'
     ],
     patterns: [],
     params: {
@@ -926,10 +2903,231 @@ const infos = {
       args: []
     }
   },
-  paint: {
-    key: 'paint',
+  knock: {
+    key: 'knock',
     keywords: [
-      '这像画吗'
+      '敲'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  bad_news: {
+    key: 'bad_news',
+    keywords: [
+      '悲报'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '喜报'
+      ],
+      args: []
+    }
+  },
+  walnut_zoom: {
+    key: 'walnut_zoom',
+    keywords: [
+      '胡桃放大'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  funny_mirror: {
+    key: 'funny_mirror',
+    keywords: [
+      '哈哈镜'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  play_game: {
+    key: 'play_game',
+    keywords: [
+      '玩游戏'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 1,
+      default_texts: [
+        '来玩休闲游戏啊'
+      ],
+      args: []
+    }
+  },
+  thump: {
+    key: 'thump',
+    keywords: [
+      '捶'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  no_response: {
+    key: 'no_response',
+    keywords: [
+      '无响应'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  step_on: {
+    key: 'step_on',
+    keywords: [
+      '踩'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  pornhub: {
+    key: 'pornhub',
+    keywords: [
+      'ph',
+      'pornhub'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 2,
+      max_texts: 2,
+      default_texts: [
+        'You',
+        'Tube'
+      ],
+      args: []
+    }
+  },
+  confuse: {
+    key: 'confuse',
+    keywords: [
+      '迷惑'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  scroll: {
+    key: 'scroll',
+    keywords: [
+      '滚屏'
+    ],
+    patterns: [],
+    params: {
+      min_images: 0,
+      max_images: 0,
+      min_texts: 1,
+      max_texts: 1,
+      default_texts: [
+        '你们说话啊'
+      ],
+      args: []
+    }
+  },
+  bocchi_draft: {
+    key: 'bocchi_draft',
+    keywords: [
+      '波奇手稿'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  rip_angrily: {
+    key: 'rip_angrily',
+    keywords: [
+      '怒撕'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  throw_gif: {
+    key: 'throw_gif',
+    keywords: [
+      '抛',
+      '掷'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  windmill_turn: {
+    key: 'windmill_turn',
+    keywords: [
+      '风车转'
     ],
     patterns: [],
     params: {
@@ -956,18 +3154,21 @@ const infos = {
       args: []
     }
   },
-  hammer: {
-    key: 'hammer',
+  teach: {
+    key: 'teach',
     keywords: [
-      '锤'
+      '讲课',
+      '敲黑板'
     ],
     patterns: [],
     params: {
       min_images: 1,
       max_images: 1,
       min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
+      max_texts: 1,
+      default_texts: [
+        '我老婆'
+      ],
       args: []
     }
   },
@@ -1175,436 +3376,6 @@ const infos = {
       args: []
     }
   },
-  always: {
-    key: 'always',
-    keywords: [
-      '一直'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'mode',
-          type: 'string',
-          description: '生成模式',
-          default: 'normal',
-          enum: [
-            'normal',
-            'loop',
-            'circle'
-          ]
-        }
-      ]
-    }
-  },
-  no_response: {
-    key: 'no_response',
-    keywords: [
-      '无响应'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  read_book: {
-    key: 'read_book',
-    keywords: [
-      '看书'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  ascension: {
-    key: 'ascension',
-    keywords: [
-      '升天'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '学的是机械'
-      ],
-      args: []
-    }
-  },
-  applaud: {
-    key: 'applaud',
-    keywords: [
-      '鼓掌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  teach: {
-    key: 'teach',
-    keywords: [
-      '讲课',
-      '敲黑板'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '我老婆'
-      ],
-      args: []
-    }
-  },
-  keep_away: {
-    key: 'keep_away',
-    keywords: [
-      '远离'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 8,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '如何提高社交质量 : \n远离以下头像的人'
-      ],
-      args: []
-    }
-  },
-  hit_screen: {
-    key: 'hit_screen',
-    keywords: [
-      '打穿',
-      '打穿屏幕'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  fencing: {
-    key: 'fencing',
-    keywords: [
-      '击剑',
-      '🤺'
-    ],
-    patterns: [],
-    params: {
-      min_images: 2,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  good_news: {
-    key: 'good_news',
-    keywords: [
-      '喜报'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '悲报'
-      ],
-      args: []
-    }
-  },
-  rub: {
-    key: 'rub',
-    keywords: [
-      '贴',
-      '贴贴',
-      '蹭',
-      '蹭蹭'
-    ],
-    patterns: [],
-    params: {
-      min_images: 2,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  wujing: {
-    key: 'wujing',
-    keywords: [
-      '吴京'
-    ],
-    patterns: [
-      '吴京[\\s:：]*(.*?)中国(.*)'
-    ],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 2,
-      max_texts: 2,
-      default_texts: [
-        '不买华为不是',
-        '人'
-      ],
-      args: []
-    }
-  },
-  raise_sign: {
-    key: 'raise_sign',
-    keywords: [
-      '举牌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '大佬带带我'
-      ],
-      args: []
-    }
-  },
-  petpet: {
-    key: 'petpet',
-    keywords: [
-      '摸',
-      '摸摸',
-      '摸头',
-      'rua'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'circle',
-          type: 'boolean',
-          description: '是否将图片变为圆形',
-          default: false,
-          enum: null
-        }
-      ]
-    }
-  },
-  jiji_king: {
-    key: 'jiji_king',
-    keywords: [
-      '急急国王'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 11,
-      min_texts: 0,
-      max_texts: 11,
-      default_texts: [],
-      args: [
-        {
-          name: 'circle',
-          type: 'boolean',
-          description: '是否将图片变为圆形',
-          default: false,
-          enum: null
-        }
-      ]
-    }
-  },
-  smash: {
-    key: 'smash',
-    keywords: [
-      '砸'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  divorce: {
-    key: 'divorce',
-    keywords: [
-      '离婚协议',
-      '离婚申请'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  imprison: {
-    key: 'imprison',
-    keywords: [
-      '坐牢'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '我发涩图被抓起来了'
-      ],
-      args: []
-    }
-  },
-  sit_still: {
-    key: 'sit_still',
-    keywords: [
-      '坐得住',
-      '坐的住'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  karyl_point: {
-    key: 'karyl_point',
-    keywords: [
-      '凯露指'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  anti_kidnap: {
-    key: 'anti_kidnap',
-    keywords: [
-      '防诱拐'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  wakeup: {
-    key: 'wakeup',
-    keywords: [
-      'xx起来了'
-    ],
-    patterns: [
-      '(.*?)\\s+起来了'
-    ],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '好'
-      ],
-      args: []
-    }
-  },
-  love_you: {
-    key: 'love_you',
-    keywords: [
-      '永远爱你'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  my_friend: {
-    key: 'my_friend',
-    keywords: [
-      '我朋友说'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 1,
-      max_texts: 10,
-      default_texts: [
-        '让我康康'
-      ],
-      args: [
-        {
-          name: 'name',
-          type: 'string',
-          description: '指定名字',
-          default: '',
-          enum: null
-        }
-      ]
-    }
-  },
   follow: {
     key: 'follow',
     keywords: [
@@ -1617,54 +3388,6 @@ const infos = {
       min_texts: 0,
       max_texts: 1,
       default_texts: [],
-      args: []
-    }
-  },
-  always_like: {
-    key: 'always_like',
-    keywords: [
-      '我永远喜欢'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 6,
-      min_texts: 0,
-      max_texts: 6,
-      default_texts: [],
-      args: []
-    }
-  },
-  listen_music: {
-    key: 'listen_music',
-    keywords: [
-      '听音乐'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  universal: {
-    key: 'universal',
-    keywords: [
-      '万能表情',
-      '空白表情'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 1,
-      max_texts: 10,
-      default_texts: [
-        '在此处添加文字'
-      ],
       args: []
     }
   },
@@ -1688,1134 +3411,10 @@ const infos = {
       args: []
     }
   },
-  funny_mirror: {
-    key: 'funny_mirror',
-    keywords: [
-      '哈哈镜'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  douyin: {
-    key: 'douyin',
-    keywords: [
-      'douyin'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        'douyin'
-      ],
-      args: []
-    }
-  },
-  thump_wildly: {
-    key: 'thump_wildly',
-    keywords: [
-      '捶爆',
-      '爆捶'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  alike: {
-    key: 'alike',
-    keywords: [
-      '一样'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  luxun_say: {
-    key: 'luxun_say',
-    keywords: [
-      '鲁迅说',
-      '鲁迅说过'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '我没有说过这句话'
-      ],
-      args: []
-    }
-  },
-  rip_angrily: {
-    key: 'rip_angrily',
-    keywords: [
-      '怒撕'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  china_flag: {
-    key: 'china_flag',
-    keywords: [
-      '国旗'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  loading: {
-    key: 'loading',
-    keywords: [
-      '加载中'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  psyduck: {
-    key: 'psyduck',
-    keywords: [
-      '可达鸭'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 2,
-      max_texts: 2,
-      default_texts: [
-        '来份',
-        '涩图'
-      ],
-      args: []
-    }
-  },
-  klee_eat: {
-    key: 'klee_eat',
-    keywords: [
-      '可莉吃'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  call_110: {
-    key: 'call_110',
-    keywords: [
-      '遇到困难请拨打'
-    ],
-    patterns: [],
-    params: {
-      min_images: 2,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  step_on: {
-    key: 'step_on',
-    keywords: [
-      '踩'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  blood_pressure: {
-    key: 'blood_pressure',
-    keywords: [
-      '高血压'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  bite: {
-    key: 'bite',
-    keywords: [
-      '啃'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  dianzhongdian: {
-    key: 'dianzhongdian',
-    keywords: [
-      '入典',
-      '典中典',
-      '黑白草图'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 1,
-      max_texts: 2,
-      default_texts: [
-        '救命啊'
-      ],
-      args: []
-    }
-  },
-  anya_suki: {
-    key: 'anya_suki',
-    keywords: [
-      '阿尼亚喜欢'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '阿尼亚喜欢这个'
-      ],
-      args: []
-    }
-  },
-  find_chips: {
-    key: 'find_chips',
-    keywords: [
-      '整点薯条'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 4,
-      max_texts: 4,
-      default_texts: [
-        '我们要飞向何方',
-        '我打算待会去码头整点薯条',
-        '我说的是归根结底，活着是为了什么',
-        '为了待会去码头整点薯条'
-      ],
-      args: []
-    }
-  },
-  interview: {
-    key: 'interview',
-    keywords: [
-      '采访'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '采访大佬经验'
-      ],
-      args: []
-    }
-  },
-  not_call_me: {
-    key: 'not_call_me',
-    keywords: [
-      '不喊我'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '开银趴不喊我是吧'
-      ],
-      args: []
-    }
-  },
-  pat: {
-    key: 'pat',
-    keywords: [
-      '拍'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  painter: {
-    key: 'painter',
-    keywords: [
-      '小画家'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  trance: {
-    key: 'trance',
-    keywords: [
-      '恍惚'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  make_friend: {
-    key: 'make_friend',
-    keywords: [
-      '交个朋友'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  run: {
-    key: 'run',
-    keywords: [
-      '快跑'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '快跑'
-      ],
-      args: []
-    }
-  },
-  wallpaper: {
-    key: 'wallpaper',
-    keywords: [
-      '墙纸'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  decent_kiss: {
-    key: 'decent_kiss',
-    keywords: [
-      '像样的亲亲'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  punch: {
-    key: 'punch',
-    keywords: [
-      '打拳'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  thump: {
-    key: 'thump',
-    keywords: [
-      '捶'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  charpic: {
-    key: 'charpic',
-    keywords: [
-      '字符画'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  bad_news: {
-    key: 'bad_news',
-    keywords: [
-      '悲报'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '喜报'
-      ],
-      args: []
-    }
-  },
-  rise_dead: {
-    key: 'rise_dead',
-    keywords: [
-      '诈尸',
-      '秽土转生'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  wave: {
-    key: 'wave',
-    keywords: [
-      '波纹'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  symmetric: {
-    key: 'symmetric',
-    keywords: [
-      '对称'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'direction',
-          type: 'string',
-          description: '对称方向',
-          default: 'left',
-          enum: [
-            'left',
-            'right',
-            'top',
-            'bottom'
-          ]
-        }
-      ]
-    }
-  },
-  murmur: {
-    key: 'murmur',
-    keywords: [
-      '低语'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '你的假期余额不足'
-      ],
-      args: []
-    }
-  },
   twist: {
     key: 'twist',
     keywords: [
       '搓'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  pound: {
-    key: 'pound',
-    keywords: [
-      '捣'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  rip: {
-    key: 'rip',
-    keywords: [
-      '撕'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  hold_tight: {
-    key: 'hold_tight',
-    keywords: [
-      '抱紧'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  play_game: {
-    key: 'play_game',
-    keywords: [
-      '玩游戏'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '来玩休闲游戏啊'
-      ],
-      args: []
-    }
-  },
-  printing: {
-    key: 'printing',
-    keywords: [
-      '打印'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  nekoha_holdsign: {
-    key: 'nekoha_holdsign',
-    keywords: [
-      '猫羽雫举牌',
-      '猫猫举牌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        'V我50'
-      ],
-      args: []
-    }
-  },
-  incivilization: {
-    key: 'incivilization',
-    keywords: [
-      '不文明'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '你刚才说的话不是很礼貌！'
-      ],
-      args: []
-    }
-  },
-  walnut_zoom: {
-    key: 'walnut_zoom',
-    keywords: [
-      '胡桃放大'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  hold_grudge: {
-    key: 'hold_grudge',
-    keywords: [
-      '记仇'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '群友不发涩图'
-      ],
-      args: []
-    }
-  },
-  think_what: {
-    key: 'think_what',
-    keywords: [
-      '想什么'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  youtube: {
-    key: 'youtube',
-    keywords: [
-      'yt',
-      'youtube'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 2,
-      max_texts: 2,
-      default_texts: [
-        'Porn',
-        'Hub'
-      ],
-      args: []
-    }
-  },
-  prpr: {
-    key: 'prpr',
-    keywords: [
-      '舔',
-      '舔屏',
-      'prpr'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  fanatic: {
-    key: 'fanatic',
-    keywords: [
-      '狂爱',
-      '狂粉'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '洛天依'
-      ],
-      args: []
-    }
-  },
-  bubble_tea: {
-    key: 'bubble_tea',
-    keywords: [
-      '奶茶'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'position',
-          type: 'string',
-          description: '奶茶的位置',
-          default: 'right',
-          enum: [
-            'right',
-            'left',
-            'both'
-          ]
-        }
-      ]
-    }
-  },
-  police: {
-    key: 'police',
-    keywords: [
-      '出警'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  police1: {
-    key: 'police1',
-    keywords: [
-      '警察'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  name_generator: {
-    key: 'name_generator',
-    keywords: [
-      '亚文化取名机',
-      '亚名'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  jiujiu: {
-    key: 'jiujiu',
-    keywords: [
-      '啾啾'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  tightly: {
-    key: 'tightly',
-    keywords: [
-      '紧贴',
-      '紧紧贴着'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  look_this_icon: {
-    key: 'look_this_icon',
-    keywords: [
-      '看图标'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '朋友\n先看看这个图标再说话'
-      ],
-      args: []
-    }
-  },
-  confuse: {
-    key: 'confuse',
-    keywords: [
-      '迷惑'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  little_angel: {
-    key: 'little_angel',
-    keywords: [
-      '小天使'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  ask: {
-    key: 'ask',
-    keywords: [
-      '问问'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  distracted: {
-    key: 'distracted',
-    keywords: [
-      '注意力涣散'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  throw_gif: {
-    key: 'throw_gif',
-    keywords: [
-      '抛',
-      '掷'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  google: {
-    key: 'google',
-    keywords: [
-      'google'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        'Google'
-      ],
-      args: []
-    }
-  },
-  scratch_head: {
-    key: 'scratch_head',
-    keywords: [
-      '挠头'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  scroll: {
-    key: 'scroll',
-    keywords: [
-      '滚屏'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '你们说话啊'
-      ],
-      args: []
-    }
-  },
-  perfect: {
-    key: 'perfect',
-    keywords: [
-      '完美'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  shutup: {
-    key: 'shutup',
-    keywords: [
-      '别说了'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '你不要再说了'
-      ],
-      args: []
-    }
-  },
-  scratchcard: {
-    key: 'scratchcard',
-    keywords: [
-      '刮刮乐'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '谢谢参与'
-      ],
-      args: []
-    }
-  },
-  capoo_draw: {
-    key: 'capoo_draw',
-    keywords: [
-      '咖波画'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  suck: {
-    key: 'suck',
-    keywords: [
-      '吸',
-      '嗦'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  captain: {
-    key: 'captain',
-    keywords: [
-      '舰长'
-    ],
-    patterns: [],
-    params: {
-      min_images: 2,
-      max_images: 5,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  dinosaur: {
-    key: 'dinosaur',
-    keywords: [
-      '恐龙',
-      '小恐龙'
     ],
     patterns: [],
     params: {
@@ -2842,212 +3441,10 @@ const infos = {
       args: []
     }
   },
-  marriage: {
-    key: 'marriage',
+  learn: {
+    key: 'learn',
     keywords: [
-      '结婚申请',
-      '结婚登记'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  support: {
-    key: 'support',
-    keywords: [
-      '精神支柱'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  capoo_rub: {
-    key: 'capoo_rub',
-    keywords: [
-      '咖波蹭',
-      '咖波贴'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  cover_face: {
-    key: 'cover_face',
-    keywords: [
-      '捂脸'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  garbage: {
-    key: 'garbage',
-    keywords: [
-      '垃圾',
-      '垃圾桶'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  coupon: {
-    key: 'coupon',
-    keywords: [
-      '兑换券'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  wooden_fish: {
-    key: 'wooden_fish',
-    keywords: [
-      '木鱼'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  throw: {
-    key: 'throw',
-    keywords: [
-      '丢',
-      '扔'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  turn: {
-    key: 'turn',
-    keywords: [
-      '转'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  repeat: {
-    key: 'repeat',
-    keywords: [
-      '复读'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 5,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '救命啊'
-      ],
-      args: []
-    }
-  },
-  tankuku_raisesign: {
-    key: 'tankuku_raisesign',
-    keywords: [
-      '唐可可举牌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  why_at_me: {
-    key: 'why_at_me',
-    keywords: [
-      '为什么@我'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  addiction: {
-    key: 'addiction',
-    keywords: [
-      '上瘾',
-      '毒瘾发作'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  acg_entrance: {
-    key: 'acg_entrance',
-    keywords: [
-      '二次元入口'
+      '偷学'
     ],
     patterns: [],
     params: {
@@ -3056,404 +3453,7 @@ const infos = {
       min_texts: 0,
       max_texts: 1,
       default_texts: [
-        '走，跟我去二次元吧'
-      ],
-      args: []
-    }
-  },
-  kick_ball: {
-    key: 'kick_ball',
-    keywords: [
-      '踢球'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  bocchi_draft: {
-    key: 'bocchi_draft',
-    keywords: [
-      '波奇手稿'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  capoo_strike: {
-    key: 'capoo_strike',
-    keywords: [
-      '咖波撞',
-      '咖波头槌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  knock: {
-    key: 'knock',
-    keywords: [
-      '敲'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  pornhub: {
-    key: 'pornhub',
-    keywords: [
-      'ph',
-      'pornhub'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 2,
-      max_texts: 2,
-      default_texts: [
-        'You',
-        'Tube'
-      ],
-      args: []
-    }
-  },
-  eat: {
-    key: 'eat',
-    keywords: [
-      '吃'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  kirby_hammer: {
-    key: 'kirby_hammer',
-    keywords: [
-      '卡比锤',
-      '卡比重锤'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'circle',
-          type: 'boolean',
-          description: '是否将图片变为圆形',
-          default: false,
-          enum: null
-        }
-      ]
-    }
-  },
-  capoo_say: {
-    key: 'capoo_say',
-    keywords: [
-      '咖波说'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 10,
-      default_texts: [
-        '寄'
-      ],
-      args: []
-    }
-  },
-  bronya_holdsign: {
-    key: 'bronya_holdsign',
-    keywords: [
-      '布洛妮娅举牌',
-      '大鸭鸭举牌'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        'V我50'
-      ],
-      args: []
-    }
-  },
-  wish_fail: {
-    key: 'wish_fail',
-    keywords: [
-      '许愿失败'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '我要对象'
-      ],
-      args: []
-    }
-  },
-  roll: {
-    key: 'roll',
-    keywords: [
-      '滚'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  gun: {
-    key: 'gun',
-    keywords: [
-      '手枪'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'position',
-          type: 'string',
-          description: '枪的位置',
-          default: 'left',
-          enum: [
-            'left',
-            'right',
-            'both'
-          ]
-        }
-      ]
-    }
-  },
-  safe_sense: {
-    key: 'safe_sense',
-    keywords: [
-      '安全感'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '你给我的安全感\n远不及它的万分之一'
-      ],
-      args: []
-    }
-  },
-  crawl: {
-    key: 'crawl',
-    keywords: [
-      '爬'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: [
-        {
-          name: 'number',
-          type: 'integer',
-          description: '图片编号，范围为 1~92',
-          default: 0,
-          enum: null
-        }
-      ]
-    }
-  },
-  slogan: {
-    key: 'slogan',
-    keywords: [
-      '口号'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 6,
-      max_texts: 6,
-      default_texts: [
-        '我们是谁？',
-        '浙大人！',
-        '到浙大来做什么？',
-        '混！',
-        '将来毕业后要做什么样的人？',
-        '混混！'
-      ],
-      args: []
-    }
-  },
-  meteor: {
-    key: 'meteor',
-    keywords: [
-      '流星'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 1,
-      max_texts: 1,
-      default_texts: [
-        '我要对象'
-      ],
-      args: []
-    }
-  },
-  kiss: {
-    key: 'kiss',
-    keywords: [
-      '亲',
-      '亲亲'
-    ],
-    patterns: [],
-    params: {
-      min_images: 2,
-      max_images: 2,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  play: {
-    key: 'play',
-    keywords: [
-      '顶',
-      '玩'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  windmill_turn: {
-    key: 'windmill_turn',
-    keywords: [
-      '风车转'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 0,
-      default_texts: [],
-      args: []
-    }
-  },
-  together: {
-    key: 'together',
-    keywords: [
-      '一起'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [],
-      args: []
-    }
-  },
-  look_flat: {
-    key: 'look_flat',
-    keywords: [
-      '看扁'
-    ],
-    patterns: [],
-    params: {
-      min_images: 1,
-      max_images: 1,
-      min_texts: 0,
-      max_texts: 1,
-      default_texts: [
-        '可恶...被人看扁了'
-      ],
-      args: [
-        {
-          name: 'ratio',
-          type: 'integer',
-          description: '图片“压扁”比例',
-          default: 2,
-          enum: null
-        }
-      ]
-    }
-  },
-  '5000choyen': {
-    key: '5000choyen',
-    keywords: [
-      '5000兆'
-    ],
-    patterns: [],
-    params: {
-      min_images: 0,
-      max_images: 0,
-      min_texts: 2,
-      max_texts: 2,
-      default_texts: [
-        '我去',
-        '洛天依'
+        '偷学群友数理基础'
       ],
       args: []
     }
