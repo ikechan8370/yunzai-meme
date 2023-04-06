@@ -95,7 +95,7 @@ export class memes extends plugin {
 
   async memesList (e) {
     mkdirs('data/memes')
-    let resultFileLoc = 'data/memes/render_list.jpg'
+    let resultFileLoc = 'data/memes/render_list1.jpg'
     if (fs.existsSync(resultFileLoc)) {
       await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
       return true
