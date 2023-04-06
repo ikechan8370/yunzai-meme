@@ -8,16 +8,12 @@ RUN fc-cache -fv
 
 RUN pip install meme_generator
 
-RUN meme download
-
 RUN git clone https://github.com/MeetWq/meme-generator-contrib  && mkdir /meme-extend && mv meme-generator-contrib/memes/* /meme-extend
 
 ADD config.toml /root/.config/meme_generator/config.toml
 
-ADD config.toml ~/.config/meme_generator/config.toml
-
 RUN meme download
 
-RUN rm -rf meme-generator-contrib && rm -rf meme-generator
+RUN rm -rf meme-generator-contrib && rm -rf $HOME/meme-generator
 
 CMD ["meme", "run"]
