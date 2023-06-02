@@ -573,7 +573,9 @@ const keyMap = {
   抓: 'grab',
   合成大干员: 'operator_generator',
   双手: 'stretch',
-  伸展: 'stretch'
+  伸展: 'stretch',
+  换位思考: 'empathy',
+  飞机杯: 'fleshlight'
 }
 
 const detail = code => {
@@ -3550,7 +3552,37 @@ const infos = {
       default_texts: [],
       args: []
     }
-  }
+  },
+  empathy: {
+    key: 'empathy',
+    keywords: [
+      '换位思考'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
+  fleshlight: {
+    key: 'fleshlight',
+    keywords: [
+      '飞机杯'
+    ],
+    patterns: [],
+    params: {
+      min_images: 1,
+      max_images: 1,
+      min_texts: 0,
+      max_texts: 0,
+      default_texts: [],
+      args: []
+    }
+  },
 }
 
 function mkdirs (dirname) {
