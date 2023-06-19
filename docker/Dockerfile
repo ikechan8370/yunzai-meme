@@ -6,14 +6,20 @@ RUN git clone https://github.com/MeetWq/meme-generator.git && mkdir /usr/share/f
 
 RUN fc-cache -fv
 
-RUN pip install meme_generator
+RUN pip install poetry
 
 RUN git clone https://github.com/MeetWq/meme-generator-contrib  && mkdir /meme-extend && mv meme-generator-contrib/memes/* /meme-extend
 
 ADD config.toml /root/.config/meme_generator/config.toml
 
-RUN meme download
+RUN cd meme-generator && poetry install && . .venv/bin/activate && python -m meme_generator.download && cd ..
 
 RUN rm -rf meme-generator-contrib && rm -rf $HOME/meme-generator
 
-CMD ["meme", "run"]
+ADD utils.py meme-generator/meme_generator
+
+ADD dianzhongdian/__init__.py meme-generator/meme_generator/memes/dianzhongdian/
+# 如果有自己扩展包
+# ADD extends/ /meme-extend
+
+CMD cd meme-generator && . .venv/bin/activate && python3 -m meme_generator.app
