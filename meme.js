@@ -235,15 +235,15 @@ export class memes extends plugin {
       } else if (e.message.filter(m => m.type === 'at').length > 0) {
         // 艾特的用户的头像
         let ats = e.message.filter(m => m.type === 'at')
-        imgUrls = ats.map(at => at.qq).map(qq => `https://q1.qlogo.cn/g?b=qq&s=0&nk=${qq}`)
+        imgUrls = ats.map(at => at.qq).map(qq => `https://q1.qlogo.cn/g?b=qq&s=160&nk=${qq}`)
       }
       if (!imgUrls || imgUrls.length === 0) {
         // 如果都没有，用发送者的头像
-        imgUrls = [`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`]
+        imgUrls = [`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.sender.user_id}`]
       }
-      if (imgUrls.length < info.params.min_images && imgUrls.indexOf(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`) === -1) {
+      if (imgUrls.length < info.params.min_images && imgUrls.indexOf(`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.sender.user_id}`) === -1) {
         // 如果数量不够，补上发送者头像，且放到最前面
-        let me = [`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.sender.user_id}`]
+        let me = [`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.sender.user_id}`]
         let done = false
         if (targetCode === 'do' && masterProtectDo) {
           let masters = await getMasterQQ()
@@ -259,7 +259,7 @@ export class memes extends plugin {
         if (!done) {
           imgUrls = me.concat(imgUrls)
         }
-        // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=0&nk=${e.msg.sender.user_id}`)
+        // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.msg.sender.user_id}`)
       }
       imgUrls = imgUrls.slice(0, Math.min(info.params.max_images, imgUrls.length))
       for (let i = 0; i < imgUrls.length; i++) {
