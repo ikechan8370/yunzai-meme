@@ -22,6 +22,11 @@ const forceSharp = false
  * @type {boolean}
  */
 const masterProtectDo = true
+/**
+ * 用户输入的图片，最大支持的文件大小，单位为MB
+ * @type {number}
+ */
+const maxFileSize = 10
 
 let keyMap = {}
 
@@ -99,21 +104,22 @@ export class memes extends plugin {
     this.task = {
       // 每天的凌晨3点执行
       cron: generateCronExpression(),
-      name: '锅巴自动更新任务',
+      name: 'memes自动更新任务',
       fnc: this.init.bind(this),
     }
   }
   async init () {
+    mkdirs('data/memes')
     keyMap = {}
     infos = {}
     if (fs.existsSync('data/memes/infos.json')) {
       infos = fs.readFileSync('data/memes/infos.json')
       infos = JSON.parse(infos)
-    } 
+    }
     if (fs.existsSync('data/memes/keyMap.json')) {
       keyMap = fs.readFileSync('data/memes/keyMap.json')
       keyMap = JSON.parse(keyMap)
-    } 
+    }
     if (Object.keys(infos).length === 0) {
       logger.mark('yunzai-meme infos资源本地不存在，正在远程拉取中')
       let infosRes = await fetch(`${baseUrl}/memes/static/infos.json`)
@@ -134,7 +140,7 @@ export class memes extends plugin {
       // 只能本地生成了
       let keysRes = await fetch(`${baseUrl}/memes/keys`)
       let keys = await keysRes.json()
-  
+
       let keyMapTmp = {}
       let infosTmp = {}
       for (const key of keys) {
@@ -202,7 +208,6 @@ export class memes extends plugin {
   }
 
   async memesList (e) {
-    mkdirs('data/memes')
     let resultFileLoc = 'data/memes/render_list1.jpg'
     if (fs.existsSync(resultFileLoc)) {
       await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
@@ -365,7 +370,11 @@ export class memes extends plugin {
     if (args) {
       formData.set('args', args)
     }
-    console.log('input', { target, targetCode, images: formData.getAll('images'), texts: formData.getAll('texts'), args: formData.getAll('args') })
+    const images = formData.getAll('images')
+    if (checkFileSize(images)) {
+      return this.e.reply(`文件大小超出限制，最多支持${maxFileSize}MB`)
+    }
+    console.log('input', { target, targetCode, images, texts: formData.getAll('texts'), args: formData.getAll('args') })
     let response = await fetch(baseUrl + '/memes/' + targetCode + '/', {
       method: 'POST',
       body: formData
@@ -504,8 +513,19 @@ const detail = code => {
   return ins
 }
 
+// 最大支持的文件大小（字节）
+const maxFileSizeByte = maxFileSize * 1024 * 1024
 
-  
+// 如果有任意一个文件大于 maxSize，则返回true
+function checkFileSize(files) {
+  let fileList = Array.isArray(files) ? files : [files]
+  fileList = fileList.filter(file => !!(file?.size))
+  if (fileList.length === 0) {
+    return false
+  }
+  return fileList.some(file => file.size >= maxFileSizeByte)
+}
+
 
 
 function mkdirs (dirname) {
