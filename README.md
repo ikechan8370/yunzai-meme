@@ -3,6 +3,11 @@
 
 基于meme-generator的Yunzai机器人的表情包插件
 
+## 更新
+支持试用huggingface搭建api了，可以duplicate我的space：https://huggingface.co/spaces/ikechan8370/meme-generator
+然后api填https://[username]-meme-generator.hf.space，例如我的就是https://ikechan8370-meme-generator.hf.space
+原API将转发到该仓库，对大陆用户可能友好一些
+
 ## 可选
 提供了一个默认的免费API（[状态](https://avocado-status.ikechan8370.com/status/chatgpt-meme)），要求高稳定性的建议自己搭建，然后修改第9行的baseUrl为你的自建meme api，参考[这里](https://github.com/MeetWq/meme-generator)搭建。可选加入[扩展包](https://github.com/MeetWq/meme-generator-contrib)
 
@@ -17,6 +22,17 @@
 ## 安装
 
 直接把meme.js扔到plugins/example目录下即可
+
+下载链接：
+
+https://raw.githubusercontent.com/ikechan8370/yunzai-meme/main/meme.js
+
+或者大陆服务器可以用gitee，不一定有github更新及时
+
+https://gitee.com/ikechan/yunzai-meme/raw/main/meme.js
+
+安装后可能需要重启，如果没响应就重启一下试试
+可以发送meme更新进行资源的在线更新。
 
 ## 食用方法
 
