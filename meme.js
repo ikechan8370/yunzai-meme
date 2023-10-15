@@ -210,7 +210,7 @@ export class memes extends plugin {
   async memesList (e) {
     let resultFileLoc = 'data/memes/render_list1.jpg'
     if (fs.existsSync(resultFileLoc)) {
-      await e.reply(segment.image(fs.createReadStream(resultFileLoc)))
+      await e.reply(segment.image(`file://${resultFileLoc}`))
       return true
     }
     let response = await fetch(baseUrl + '/memes/render_list', {
