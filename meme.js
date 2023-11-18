@@ -360,8 +360,10 @@ export class memes extends plugin {
       let mm = await e.group.getMemberMap()
       userInfos.forEach(ui => {
         let user = mm.get(ui.qq)
-        ui.gender = user.sex
-        ui.text = user.card || user.nickname
+        if (user) {
+          ui.gender = user.sex
+          ui.text = user.card || user.nickname
+        }
       })
     }
     if (!userInfos) {
