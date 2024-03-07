@@ -486,7 +486,7 @@ function handleArgs (key, args, userInfos) {
   argsObj.user_infos = userInfos.map(u => {
     return {
       name: _.trim(u.text, '@'),
-      gender: u.gender
+      gender: u.gender || 'unknown'
     }
   })
   return JSON.stringify(argsObj)
