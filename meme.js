@@ -16,7 +16,7 @@ const reply = true
 /**
  * 是否强制使用#触发命令
  */
-const forceSharp = false
+const forceSharp = true
 /**
  * 主人保护，撅主人时会被反撅 (暂时只支持QQ)
  * @type {boolean}
