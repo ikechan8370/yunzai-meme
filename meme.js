@@ -272,7 +272,7 @@ export class memes extends plugin {
         // 获取回复中的图 llonebot中的为reply_id
         let seq = e.source?.seq || e.reply_id 
         if (e.isGroup) {
-          reply = (await e.group.getChatHistory(seq, 1)).pop()?.message
+          reply = (await e.group.getChatHistory(Number(seq), 1)).pop()?.message
         } else {
           reply = (await e.friend.getChatHistory(e.source.time, 1)).pop()?.message
         }
