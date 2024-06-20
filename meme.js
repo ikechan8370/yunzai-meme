@@ -266,11 +266,13 @@ export class memes extends plugin {
     if (info.params.max_images > 0) {
       // 可以有图，来从回复、发送和头像找图
       let imgUrls = []
-      if (e.source) {
+      if (e.source || e.reply_id ) {
         // 优先从回复找图
         let reply
+        // 获取回复中的图 llonebot中的为reply_id
+        let seq = e.source?.seq || e.reply_id 
         if (e.isGroup) {
-          reply = (await e.group.getChatHistory(e.source.seq, 1)).pop()?.message
+          reply = (await e.group.getChatHistory(seq, 1)).pop()?.message
         } else {
           reply = (await e.friend.getChatHistory(e.source.time, 1)).pop()?.message
         }
