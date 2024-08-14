@@ -206,7 +206,7 @@ class memes extends plugin {
   }
 
   async memesList (e) {
-    let resultFileLoc = 'data/karin-plugin-example/memes/render_list1.jpg'
+    let resultFileLoc = 'temp/karin-plugin-example/memes/render_list1.jpg'
     if (fs.existsSync(resultFileLoc)) {
       await e.reply(segment.image(`file://${path.resolve(resultFileLoc)}`))
       return true
@@ -259,7 +259,7 @@ class memes extends plugin {
     let userInfos
     let formData = new FormData()
     let info = infos[targetCode]
-    let fileLoc
+    let fileLoc = []
     if (info.params.max_images > 0) {
       // 可以有图，来从回复、发送和头像找图
       let imgUrls = []
@@ -282,6 +282,10 @@ class memes extends plugin {
       if (!imgUrls || imgUrls.length === 0) {
         // 如果都没有，用发送者的头像
         imgUrls = [await getAvatar(e)]
+        // 如果再不够，加上机器人的头像
+        if (imgUrls.length < info.params.min_images) {
+          imgUrls = [(await e.bot.getAvatarUrl())].concat(imgUrls)
+        }
       }
       if (imgUrls.length < info.params.min_images && imgUrls.indexOf(await getAvatar(e)) === -1) {
         // 如果数量不够，补上发送者头像，且放到最前面
@@ -308,12 +312,12 @@ class memes extends plugin {
         let imgUrl = imgUrls[i]
         const imageResponse = await fetch(imgUrl)
         const fileType = imageResponse.headers.get('Content-Type').split('/')[1]
-        fileLoc = `data/karin-plugin-example/memes/original/${Date.now()}.${fileType}`
-        common.mkdir('./data/karin-plugin-example/memes/original')
+        fileLoc.push(`temp/karin-plugin-example/memes/original/${Date.now()}.${fileType}`)
+        common.mkdir('./temp/karin-plugin-example/memes/original')
         const blob = await imageResponse.blob()
         const arrayBuffer = await blob.arrayBuffer()
         const buffer = Buffer.from(arrayBuffer)
-        await fs.promises.writeFile(fileLoc, buffer)
+        await fs.promises.writeFile(fileLoc[i], buffer)
         formData.append('images', new File([buffer], `avatar_${i}.jpg`, { type: 'image/jpeg' }))
       }
     }
@@ -376,14 +380,16 @@ class memes extends plugin {
       await e.reply(error, { reply: true })
       return true
     }
-    common.mkdir('data/karin-plugin-example/memes/result')
-    let resultFileLoc = `data/karin-plugin-example/memes/result/${Date.now()}.gif`
+    common.mkdir('temp/karin-plugin-example/memes/result')
+    let resultFileLoc = `temp/karin-plugin-example/memes/result/${Date.now()}.gif`
     const resultBlob = await response.blob()
     const resultArrayBuffer = await resultBlob.arrayBuffer()
     const resultBuffer = Buffer.from(resultArrayBuffer)
     await fs.promises.writeFile(resultFileLoc, resultBuffer)
     await e.reply(segment.image(`file://${path.resolve(resultFileLoc)}`), { reply })
-    fileLoc && fs.unlink(fileLoc, () => { })
+    fileLoc.forEach((file) => {
+      fs.unlink(file, () => { })
+    })
     fs.unlink(resultFileLoc, () => { })
   }
 }
@@ -546,7 +552,7 @@ async function getMasterQQ () {
   return config.master
 }
 
-async function getAvatar (e, userId = e.sender.user_id) {
+async function getAvatar (e, userId = e.user_id) {
   if (typeof e.bot.getAvatarUrl === 'function') {
     return await e.bot.getAvatarUrl(userId)
   }
