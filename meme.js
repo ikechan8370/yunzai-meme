@@ -31,6 +31,11 @@ const maxFileSize = 10
 let keyMap = {}
 
 let infos = {}
+
+/**
+ * 主人保护list
+ */
+let protectList = ['lash','do','beat_up','little_do']
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -299,22 +304,21 @@ export class memes extends plugin {
       if (imgUrls.length < info.params_type.min_images && imgUrls.indexOf(await getAvatar(e)) === -1) {
         // 如果数量不够，补上发送者头像，且放到最前面
         let me = [await getAvatar(e)]
-        let done = false
-        if (targetCode === 'do' && masterProtectDo) {
-          let masters = await getMasterQQ()
-          if (imgUrls[0].startsWith('https://q1.qlogo.cn')) {
-            let split = imgUrls[0].split('=')
-            let targetQQ = split[split.length - 1]
-            if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
-              imgUrls = imgUrls.concat(me)
-              done = true
-            }
-          }
-        }
-        if (!done) {
-          imgUrls = me.concat(imgUrls)
-        }
+
+        imgUrls = me.concat(imgUrls)
         // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.msg.sender.user_id}`)
+      }
+      logger.debug('imgUrls:',imgUrls)
+      if (protectList.includes(targetCode) && masterProtectDo) {
+        let me = [await getAvatar(e)]
+        let masters = await getMasterQQ()
+        if (imgUrls[1].startsWith('https://q1.qlogo.cn')) {
+          let split = imgUrls[1].split('=')
+          let targetQQ = split[split.length - 1]
+          if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
+            imgUrls = [imgUrls[1]].concat(me)
+         }
+        } 
       }
       imgUrls = imgUrls.slice(0, Math.min(info.params_type.max_images, imgUrls.length))
       for (let i = 0; i < imgUrls.length; i++) {
