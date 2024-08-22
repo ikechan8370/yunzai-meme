@@ -253,6 +253,9 @@ export class memes extends plugin {
     if (target === '玩' && msg.startsWith('玩游戏')) {
       target = '玩游戏'
     }
+    if (target === '舔' && msg.startsWith('舔糖')){
+      target = '舔糖'
+    }
     if (target === '滚' && msg.startsWith('滚屏')) {
       target = '滚屏'
     }
@@ -261,7 +264,7 @@ export class memes extends plugin {
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
     if (text1.trim() === '详情' || text1.trim() === '帮助') {
       await e.reply(detail(targetCode))
-      return false
+      return true
     }
     let [text, args = ''] = text1.split('#')
     let userInfos
@@ -274,15 +277,16 @@ export class memes extends plugin {
       if (e.source || e.reply_id ) {
         // 优先从回复找图
         let reply
-        // 获取回复中的图 llonebot中的为reply_id
-        let seq = e.source?.seq || e.reply_id 
-        if (e.isGroup) {
-          reply = (await e.group.getChatHistory(Number(seq), 1)).pop()?.message
-        } else {
-          reply = (await e.friend.getChatHistory(e.source.time, 1)).pop()?.message
+        if (this.e.getReply) {
+          reply = await this.e.getReply()
+        } else if (this.e.source) {
+          if (this.e.group?.getChatHistory)
+            reply = (await this.e.group.getChatHistory(this.e.source.seq, 1)).pop()
+          else if (this.e.friend?.getChatHistory)
+            reply = (await this.e.friend.getChatHistory(this.e.source.time, 1)).pop()
         }
-        if (reply) {
-          for (let val of reply) {
+        if (reply?.message) {
+          for (let val of reply.message) {
             if (val.type === 'image') {
               console.log(val)
               imgUrls.push(val.url)
@@ -503,7 +507,7 @@ const detail = code => {
   let keywords = d.keywords.join('、')
   let ins = `【代码】${d.key}\n【名称】${keywords}\n【最大图片数量】${d.params_type.max_images}\n【最小图片数量】${d.params_type.min_images}\n【最大文本数量】${d.params_type.max_texts}\n【最小文本数量】${d.params_type.min_texts}\n【默认文本】${d.params_type.default_texts.join('/')}\n`
   // todo api break change!
-  if (d.params_type.args.length > 0) {
+  if (d.params_type.args_type?.parser_options.length > 0) {
     let supportArgs = ''
     switch (code) {
       case 'look_flat': {
