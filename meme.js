@@ -428,6 +428,10 @@ function handleArgs (key, args, userInfos) {
       argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 92, false) }
       break
     }
+    case 'firefly_holdsign': {
+      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 21, false) }
+      break
+    }
     case 'symmetric': {
       let directionMap = {
         左: 'left',
@@ -492,6 +496,18 @@ function handleArgs (key, args, userInfos) {
       argsObj = { black: args.startsWith('黑白') || args.startsWith('灰') }
       break
     }
+    case 'genshin_eat': {
+      const  roleMap = {
+        八重: 1,
+        胡桃: 2,
+        妮露: 3,
+        可莉: 4,
+        刻晴: 5,
+        钟离: 6
+      }
+      argsObj = { character: roleMap[args.trim()] || 0 }
+      break
+    }
   }
   argsObj.user_infos = userInfos.map(u => {
     return {
@@ -516,6 +532,10 @@ const detail = code => {
       }
       case 'crawl': {
         supportArgs = '爬的图片编号，1-92。如#33'
+        break
+      }
+      case 'firefly_holdsign': {
+        supportArgs = '流萤举牌的图片编号，1-21。如#2'
         break
       }
       case 'symmetric': {
@@ -548,6 +568,10 @@ const detail = code => {
       }
       case 'mourning': {
         supportArgs = '是否黑白。如#黑白 或 #灰'
+        break
+      }
+      case 'genshin_eat': {
+        supportArgs = '吃的角色(八重、胡桃、妮露、可莉、刻晴、钟离)。如#胡桃'
         break
       }
     }
