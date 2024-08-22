@@ -31,6 +31,11 @@ const maxFileSize = 10
 let keyMap = {}
 
 let infos = {}
+
+/**
+ * 主人保护list 如['lash','do','beat_up','little_do']
+ */
+let protectList = []
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -248,6 +253,9 @@ export class memes extends plugin {
     if (target === '玩' && msg.startsWith('玩游戏')) {
       target = '玩游戏'
     }
+    if (target === '舔' && msg.startsWith('舔糖')){
+      target = '舔糖'
+    }
     if (target === '滚' && msg.startsWith('滚屏')) {
       target = '滚屏'
     }
@@ -256,7 +264,7 @@ export class memes extends plugin {
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
     if (text1.trim() === '详情' || text1.trim() === '帮助') {
       await e.reply(detail(targetCode))
-      return false
+      return true
     }
     let [text, args = ''] = text1.split('#')
     let userInfos
@@ -266,16 +274,19 @@ export class memes extends plugin {
     if (info.params_type.max_images > 0) {
       // 可以有图，来从回复、发送和头像找图
       let imgUrls = []
-      if (e.source) {
+      if (e.source || e.reply_id ) {
         // 优先从回复找图
         let reply
-        if (e.isGroup) {
-          reply = (await e.group.getChatHistory(e.source.seq, 1)).pop()?.message
-        } else {
-          reply = (await e.friend.getChatHistory(e.source.time, 1)).pop()?.message
+        if (this.e.getReply) {
+          reply = await this.e.getReply()
+        } else if (this.e.source) {
+          if (this.e.group?.getChatHistory)
+            reply = (await this.e.group.getChatHistory(this.e.source.seq, 1)).pop()
+          else if (this.e.friend?.getChatHistory)
+            reply = (await this.e.friend.getChatHistory(this.e.source.time, 1)).pop()
         }
-        if (reply) {
-          for (let val of reply) {
+        if (reply?.message) {
+          for (let val of reply.message) {
             if (val.type === 'image') {
               console.log(val)
               imgUrls.push(val.url)
@@ -297,22 +308,21 @@ export class memes extends plugin {
       if (imgUrls.length < info.params_type.min_images && imgUrls.indexOf(await getAvatar(e)) === -1) {
         // 如果数量不够，补上发送者头像，且放到最前面
         let me = [await getAvatar(e)]
-        let done = false
-        if (targetCode === 'do' && masterProtectDo) {
-          let masters = await getMasterQQ()
-          if (imgUrls[0].startsWith('https://q1.qlogo.cn')) {
-            let split = imgUrls[0].split('=')
-            let targetQQ = split[split.length - 1]
-            if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
-              imgUrls = imgUrls.concat(me)
-              done = true
-            }
-          }
-        }
-        if (!done) {
-          imgUrls = me.concat(imgUrls)
-        }
+
+        imgUrls = me.concat(imgUrls)
         // imgUrls.push(`https://q1.qlogo.cn/g?b=qq&s=160&nk=${e.msg.sender.user_id}`)
+      }
+      logger.debug('imgUrls:',imgUrls)
+      if (protectList.includes(targetCode) && masterProtectDo) {
+        let me = [await getAvatar(e)]
+        let masters = await getMasterQQ()
+        if (imgUrls[1].startsWith('https://q1.qlogo.cn')) {
+          let split = imgUrls[1].split('=')
+          let targetQQ = split[split.length - 1]
+          if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
+            imgUrls = [imgUrls[1]].concat(me)
+         }
+        } 
       }
       imgUrls = imgUrls.slice(0, Math.min(info.params_type.max_images, imgUrls.length))
       for (let i = 0; i < imgUrls.length; i++) {
@@ -418,6 +428,10 @@ function handleArgs (key, args, userInfos) {
       argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 92, false) }
       break
     }
+    case 'firefly_holdsign': {
+      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 21, false) }
+      break
+    }
     case 'symmetric': {
       let directionMap = {
         左: 'left',
@@ -482,6 +496,18 @@ function handleArgs (key, args, userInfos) {
       argsObj = { black: args.startsWith('黑白') || args.startsWith('灰') }
       break
     }
+    case 'genshin_eat': {
+      const  roleMap = {
+        八重: 1,
+        胡桃: 2,
+        妮露: 3,
+        可莉: 4,
+        刻晴: 5,
+        钟离: 6
+      }
+      argsObj = { character: roleMap[args.trim()] || 0 }
+      break
+    }
   }
   argsObj.user_infos = userInfos.map(u => {
     return {
@@ -497,7 +523,7 @@ const detail = code => {
   let keywords = d.keywords.join('、')
   let ins = `【代码】${d.key}\n【名称】${keywords}\n【最大图片数量】${d.params_type.max_images}\n【最小图片数量】${d.params_type.min_images}\n【最大文本数量】${d.params_type.max_texts}\n【最小文本数量】${d.params_type.min_texts}\n【默认文本】${d.params_type.default_texts.join('/')}\n`
   // todo api break change!
-  if (d.params_type.args.length > 0) {
+  if (d.params_type.args_type?.parser_options.length > 0) {
     let supportArgs = ''
     switch (code) {
       case 'look_flat': {
@@ -506,6 +532,10 @@ const detail = code => {
       }
       case 'crawl': {
         supportArgs = '爬的图片编号，1-92。如#33'
+        break
+      }
+      case 'firefly_holdsign': {
+        supportArgs = '流萤举牌的图片编号，1-21。如#2'
         break
       }
       case 'symmetric': {
@@ -538,6 +568,10 @@ const detail = code => {
       }
       case 'mourning': {
         supportArgs = '是否黑白。如#黑白 或 #灰'
+        break
+      }
+      case 'genshin_eat': {
+        supportArgs = '吃的角色(八重、胡桃、妮露、可莉、刻晴、钟离)。如#胡桃'
         break
       }
     }
