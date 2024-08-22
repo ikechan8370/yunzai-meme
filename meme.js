@@ -33,9 +33,9 @@ let keyMap = {}
 let infos = {}
 
 /**
- * 主人保护list
+ * 主人保护list 如['lash','do','beat_up','little_do']
  */
-let protectList = ['lash','do','beat_up','little_do']
+let protectList = []
 export class memes extends plugin {
   constructor () {
     let option = {
