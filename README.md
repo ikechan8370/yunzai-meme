@@ -1,3 +1,6 @@
+# 自行搭建meme服务器：
+https://github.com/misaka20002/meme-generator/blob/main/README.md
+
 # yunzai-meme
 ![3F53077B8088F0C03FA7C81B2E4CC62A](https://user-images.githubusercontent.com/21212372/228231810-3202ff31-e5ed-4ab8-a93f-a55ab6d48f58.gif)
 
