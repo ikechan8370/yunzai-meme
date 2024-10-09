@@ -259,6 +259,9 @@ export class memes extends plugin {
     if (target === '滚' && msg.startsWith('滚屏')) {
       target = '滚屏'
     }
+    if (target === '小丑' && msg.startsWith('小丑面具')) {
+      target = '小丑面具'
+    }
     let targetCode = keyMap[target]
     // let target = e.msg.replace(/^#?meme(s)?/, '')
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
@@ -508,6 +511,11 @@ function handleArgs (key, args, userInfos) {
       argsObj = { character: roleMap[args.trim()] || 0 }
       break
     }
+    case 'clown_mask': {
+      argsObj = { mode: args === '前' ? 'front' : 'behind' }
+      break 
+    }
+      
   }
   argsObj.user_infos = userInfos.map(u => {
     return {
@@ -572,6 +580,10 @@ const detail = code => {
       }
       case 'genshin_eat': {
         supportArgs = '吃的角色(八重、胡桃、妮露、可莉、刻晴、钟离)。如#胡桃'
+        break
+      }
+      case 'clown_mask': {
+        supportArgs = '小丑在前或在后，如#前 #后'
         break
       }
     }
