@@ -515,7 +515,24 @@ function handleArgs (key, args, userInfos) {
       argsObj = { mode: args === '前' ? 'front' : 'behind' }
       break 
     }
-      
+    case "alipay": {
+      argsObj = {
+        message: args ? args : "", 
+      };
+      break;
+    }
+    case "wechat_pay": {
+      argsObj = {
+        message: args ? args : "", 
+      };
+      break;
+    }
+    case "panda_dragon_figure": {
+      argsObj = {
+        name: args || "",
+      };
+      break;
+    }
   }
   argsObj.user_infos = userInfos.map(u => {
     return {
@@ -585,6 +602,18 @@ const detail = code => {
       case 'clown_mask': {
         supportArgs = '小丑在前或在后，如#前 #后'
         break
+      }
+      case "alipay": {
+        supportArgs = "二维码的内容链接或文本，如#https://gituhub.com";
+        break;
+      }
+      case "wechat_pay": {
+        supportArgs = "二维码的内容链接或文本，如#https://gituhub.com";
+        break;
+      }
+      case "panda_dragon_figure": {
+        supportArgs = "奇怪龙表情生成，如#原神龙";
+        break;
       }
     }
     ins += `【支持参数】${supportArgs}`
