@@ -319,13 +319,24 @@ export class memes extends plugin {
       if (protectList.includes(targetCode) && masterProtectDo) {
         let me = [await getAvatar(e)]
         let masters = await getMasterQQ()
-        if (imgUrls[1].startsWith('https://q1.qlogo.cn')) {
-          let split = imgUrls[1].split('=')
-          let targetQQ = split[split.length - 1]
-          if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
-            imgUrls = [imgUrls[1]].concat(me)
-         }
-        } 
+        // 有些meme只需要传一张图，此时如果targetQQ是主人，那meme的人就是他自己
+        if (imgUrls.length === 1) {
+            if (imgUrls[0].startsWith('https://q1.qlogo.cn')) {
+                let split = imgUrls[1].split('=')
+                let targetQQ = split[split.length - 1]
+                if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
+                    imgUrls[0] = me
+                }
+            }
+        } else {
+            if (imgUrls[1].startsWith('https://q1.qlogo.cn')) {
+                let split = imgUrls[1].split('=')
+                let targetQQ = split[split.length - 1]
+                if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
+                    imgUrls = [imgUrls[1]].concat(me)
+                }
+            }
+        }
       }
       imgUrls = imgUrls.slice(0, Math.min(info.params_type.max_images, imgUrls.length))
       for (let i = 0; i < imgUrls.length; i++) {
@@ -513,17 +524,17 @@ function handleArgs (key, args, userInfos) {
     }
     case 'clown_mask': {
       argsObj = { mode: args === '前' ? 'front' : 'behind' }
-      break 
+      break
     }
     case "alipay": {
       argsObj = {
-        message: args ? args : "", 
+        message: args ? args : "",
       };
       break;
     }
     case "wechat_pay": {
       argsObj = {
-        message: args ? args : "", 
+        message: args ? args : "",
       };
       break;
     }
