@@ -322,7 +322,7 @@ export class memes extends plugin {
         // 有些meme只需要传一张图，此时如果targetQQ是主人，那meme的人就是他自己
         if (imgUrls.length === 1) {
             if (imgUrls[0].startsWith('https://q1.qlogo.cn')) {
-                let split = imgUrls[1].split('=')
+                let split = imgUrls[0].split('=')
                 let targetQQ = split[split.length - 1]
                 if (masters.map(q => q + '').indexOf(targetQQ) > -1) {
                     imgUrls[0] = me
