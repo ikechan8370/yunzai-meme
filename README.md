@@ -46,6 +46,45 @@ https://gitee.com/ikechan/yunzai-meme/raw/main/meme.js
 
 0626更新：`#meme更新`进行在线更新
 
+## 禁用表情
+在某些人多的大群里，如果你认为部分表情不适合进行meme，你可以使用以下方式来禁用部分表情（只限制群聊，私聊不限制）  
+
+方式一（适用于自己搭建meme-generator）：
+- 第一步：获取需要禁用的表情的【代码】，如“舔”，在群内发送【舔详情】，则机器人会返回“舔”的【代码】为“prpr”
+- 第二步：在meme-generator的【meme_generator/memes】目录下，将“prpr”文件夹删除或移动到其他目录，这样可以从根源上直接移除“舔”，机器人所在的所有群里都无法再进行“舔”，【meme列表】中也不会包含“舔”
+  
+方式二（只在部分群里进行meme限制）：
+- 第一步：同方式一，先获取表情代码
+- 第二步：将本插件meme.js中的openBlackList从false修改为true
+```
+let openBlackList = true
+```
+- 第三步：  
+
+&emsp;&emsp;如果你想让你机器人所在的所有群聊都禁用“舔”和其他一些表情，则在memeBlackList中配置：
+```
+let memeBlackList = [
+    {
+        groupId: 'all',
+        blackList: ['prpr', 'do', 'little_do']
+    }
+]
+```
+&emsp;&emsp;如果你想让你的机器人在群123和群456之中禁用“舔”和其他一些表情，则在memeBlackList中配置：
+```
+let memeBlackList = [
+    {
+        groupId: 123,
+        blackList: ['prpr', 'do']
+    },
+    {
+        groupId: 456,
+        blackList: ['prpr', 'do', 'little_do', 'shoot']
+    }
+]
+```
+&emsp;&emsp;备注：方式二无法禁用【meme列表】中的表情（使用方式二禁用“舔”后，虽然【meme列表】中由“舔”，但是机器人不会触发“舔”），【meme列表】由meme-generator根据【meme_generator/memes】目录生成，如果想在【meme列表】不显示“舔”，目前仅支持方式一进行禁用
+
 > 如果觉得有帮助，请帮我点一个免费的Star，谢谢！
 
 ## 致谢

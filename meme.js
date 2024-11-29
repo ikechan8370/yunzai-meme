@@ -36,6 +36,29 @@ let infos = {}
  * 主人保护list 如['lash','do','beat_up','little_do']
  */
 let protectList = []
+
+/**
+ * 是否开启meme黑名单
+ * @type {boolean} true-开启 默认关闭
+ */
+let openBlackList = false
+/**
+ * meme黑名单 在指定群聊中禁用某些meme表情（只限制群聊，私聊不限制）
+ * {
+ *    groupId: 群号（如果想要所有群都禁用，则群号这里填 'all'）
+ *    blackList：禁用的meme表情
+ * }
+ */
+let memeBlackList = [
+    {
+        groupId: '123',
+        blackList: ['do', 'little_do']
+    },
+    {
+        groupId: '456',
+        blackList: ['do', 'little_do', 'shoot']
+    }
+]
 export class memes extends plugin {
   constructor () {
     let option = {
@@ -263,6 +286,22 @@ export class memes extends plugin {
       target = '小丑面具'
     }
     let targetCode = keyMap[target]
+      // 检查meme黑名单
+    if (openBlackList) {
+        let groupId = e.group_id
+        if (groupId) {
+            for (let black of memeBlackList) {
+                // 黑名单列表中包含该表情
+                if (black.blackList.includes(targetCode)) {
+                    if ('all' === black.groupId) {// 所有群都禁用该表情
+                        return
+                    } else if (groupId == black.groupId) { //群号等于黑名单中的群号时禁用该表情
+                        return
+                    }
+                }
+            }
+        }
+    }
     // let target = e.msg.replace(/^#?meme(s)?/, '')
     let text1 = _.trimStart(e.msg, '#').replace(target, '')
     if (text1.trim() === '详情' || text1.trim() === '帮助') {
