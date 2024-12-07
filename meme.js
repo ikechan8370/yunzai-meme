@@ -579,7 +579,7 @@ const detail = code => {
         break
       }
       case 'jinhsi': {
-        supportArgs = '汐汐的图片编号，1-21。如#2'
+        supportArgs = '汐汐的图片编号，1-12。如#2'
         break
       }
       case 'symmetric': {
