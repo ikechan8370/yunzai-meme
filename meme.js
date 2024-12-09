@@ -447,7 +447,7 @@ function handleArgs (key, args, userInfos) {
       break
     }
     case 'jinhsi': {
-      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 12, false) }
+      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 13, false) }
       break
     }
     case 'symmetric': {
@@ -579,7 +579,7 @@ const detail = code => {
         break
       }
       case 'jinhsi': {
-        supportArgs = '汐汐的图片编号，1-12。如#2'
+        supportArgs = '汐汐的图片编号，1-13。如#3'
         break
       }
       case 'symmetric': {
