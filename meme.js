@@ -446,6 +446,10 @@ function handleArgs (key, args, userInfos) {
       argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 21, false) }
       break
     }
+    case 'jinhsi': {
+      argsObj = { number: parseInt(args) ? parseInt(args) : _.random(1, 13, false) }
+      break
+    }
     case 'symmetric': {
       let directionMap = {
         左: 'left',
@@ -572,6 +576,10 @@ const detail = code => {
       }
       case 'firefly_holdsign': {
         supportArgs = '流萤举牌的图片编号，1-21。如#2'
+        break
+      }
+      case 'jinhsi': {
+        supportArgs = '汐汐的图片编号，1-13。如#3'
         break
       }
       case 'symmetric': {
