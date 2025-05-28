@@ -3,12 +3,10 @@
 
 基于meme-generator的Yunzai机器人的表情包插件
 
-## 更新
-支持试用huggingface搭建api了，可以duplicate我的space：https://huggingface.co/spaces/ikechan8370/meme-generator
-然后api填https://[username]-meme-generator.hf.space，例如我的就是https://ikechan8370-meme-generator.hf.space
-原API将转发到该仓库，对大陆用户可能友好一些
+## 搭建meme服务器
 
-## 可选
+### 默认的免费API
+
 提供了一个默认的免费API（[状态](https://avocado-status.ikechan8370.com/status/chatgpt-meme)），要求高稳定性的建议自己搭建，然后修改第9行的baseUrl为你的自建meme api，参考[这里](https://github.com/MeetWq/meme-generator)搭建。可选加入[扩展包](https://github.com/MeetWq/meme-generator-contrib)
 
 更新：提供了一个docker镜像，一键搭建：`docker run -d -p 2233:2233 --restart=always geyinchi/meme-generator:latest`
@@ -18,6 +16,21 @@
 更新：MeetWq/meme-generator仓库也提供了docker镜像和Dockfile
 
 要求不高或者没条件可以用内置的API。
+
+### 自行搭建meme服务器
+
+- 使用脚本搭建meme服务器
+    ```sh
+    bash <(curl -sL https://raw.githubusercontent.com/misaka20002/Bot-Install-Shell/refs/heads/master/Manage/meme_generator.sh)
+    # 或使用 ghfast 加速：
+    # bash <(curl -sL https://ghfast.top/https://raw.githubusercontent.com/misaka20002/Bot-Install-Shell/refs/heads/master/Manage/meme_generator.sh)
+    ```
+
+### huggingface搭建api
+
+支持试用huggingface搭建api了，可以duplicate我的space：https://huggingface.co/spaces/ikechan8370/meme-generator
+然后api填https://[username]-meme-generator.hf.space，例如我的就是https://ikechan8370-meme-generator.hf.space
+原API将转发到该仓库，对大陆用户可能友好一些
 
 ## 安装
 
