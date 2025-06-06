@@ -387,14 +387,16 @@ export class memes extends plugin {
     }
     if (e.message.filter(m => m.type === 'at').length > 0) {
       userInfos = e.message.filter(m => m.type === 'at')
-      let mm = await e.group.getMemberMap()
-      userInfos.forEach(ui => {
-        let user = mm.get(ui.qq)
-        if (user) {
-          ui.gender = user.sex
-          ui.text = user.card || user.nickname
-        }
-      })
+      if(e.group.getMemberMap){
+        let mm = await e.group.getMemberMap()
+        userInfos.forEach(ui => {
+            let user = mm.get(ui.qq)
+            if (user) {
+                ui.gender = user.sex
+                ui.text = user.card || user.nickname
+            }
+        })
+      }
     }
     if (!userInfos) {
       userInfos = [{ text: e.sender.card || e.sender.nickname, gender: e.sender.sex }]
