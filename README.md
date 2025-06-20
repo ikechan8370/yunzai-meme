@@ -9,7 +9,8 @@
 
 提供了一个默认的免费API（[状态](https://avocado-status.ikechan8370.com/status/chatgpt-meme)），要求高稳定性的建议自己搭建，然后修改第9行的baseUrl为你的自建meme api，参考[这里](https://github.com/MeetWq/meme-generator)搭建。可选加入[扩展包](https://github.com/MeetWq/meme-generator-contrib)
 
-更新：提供了一个docker镜像，一键搭建：`docker run -d -p 2233:2233 --restart=always geyinchi/meme-generator:latest`
+更新：提供了一个docker镜像，一键搭建：`docker run -d -p 2233:2233 --restart=always meetwq/meme-generator:latest`
+（使用旧版本镜像将会导致使用 #meme更新 后param参数错误报错）
 
 更新：ARM版镜像，由@Regalia提供：`regaliaf/meme-generator`
 
