@@ -456,7 +456,7 @@ function handleArgs(key, args, userInfos) {
 
   argsObj.user_infos = userInfos.map(u => {
     return {
-      name: _.trim(u.text, '@'),
+      name: _.trim(u.text || u.name, '@'),
       gender: u.gender || 'unknown'
     }
   })
@@ -529,18 +529,18 @@ function generateSupportArgsText(info) {
             const exampleName = chineseNames.length > 0 ? chineseNames[0] : valueNames[0];
             return `${description || prop}，可选值：${valuesText}。如#${exampleName}`;
           }
-        // 处理数字类型
-        else if (propInfo.type === 'integer' || propInfo.type === 'number') {
-          // 添加数字范围说明（如果有）
-          let rangeText = '';
-          if (propInfo.minimum !== undefined && propInfo.maximum !== undefined) {
-            rangeText = `范围为${propInfo.minimum}~${propInfo.maximum}`;
-          } else if (propInfo.description && propInfo.description.includes('范围')) {
-            rangeText = propInfo.description;
-          }
+          // 处理数字类型
+          else if (propInfo.type === 'integer' || propInfo.type === 'number') {
+            // 添加数字范围说明（如果有）
+            let rangeText = '';
+            if (propInfo.minimum !== undefined && propInfo.maximum !== undefined) {
+              rangeText = `范围为${propInfo.minimum}~${propInfo.maximum}`;
+            } else if (propInfo.description && propInfo.description.includes('范围')) {
+              rangeText = propInfo.description;
+            }
 
-          return `${description || prop}${rangeText ? '，' + rangeText : ''}。如#1`;
-        }
+            return `${description || prop}${rangeText ? '，' + rangeText : ''}。如#1`;
+          }
         }
 
         break;

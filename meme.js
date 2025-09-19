@@ -492,7 +492,7 @@ function handleArgs(key, args, userInfos) {
 
   argsObj.user_infos = userInfos.map(u => {
     return {
-      name: _.trim(u.text, '@'),
+      name: _.trim(u.text || u.name, '@'),
       gender: u.gender || 'unknown'
     }
   })
@@ -616,7 +616,7 @@ function mkdirs(dirname) {
   }
 }
 
-async function getMasterQQ () {
+async function getMasterQQ() {
   return (await import('../../lib/config/config.js')).default.masterQQ
 }
 
